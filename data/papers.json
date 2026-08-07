@@ -1,0 +1,402 @@
+{
+  "42563542": {
+    "pmid": "42563542",
+    "title": "Vaccination in pediatric transplantation-General recommendations. A position paper by the European Reference Network TransplantChild.",
+    "abstract": "Infectious diseases remain a leading cause of morbidity and mortality among pediatric transplant recipients, despite significant advances in transplantation management. Vaccination is the most effective strategy to prevent infections; however, its efficacy is hindered in solid organ transplant (SOT) and hematopoietic stem cell transplant (HSCT) recipients, due to altered immune responses. Pediatric SOT candidates often have incomplete vaccination status prior to transplantation and reduced vaccine efficacy post-transplant due to immunosuppressive therapy. They are also at greater risk of vaccine-preventable infections compared to adults, leading to higher rates of hospitalization, graft loss, and death. In HSCT recipients, immune ablation and reconstitution result in the loss of immunologic memory, rendering both pre- and post-transplant vaccine strategies particularly challenging. Factors such as graft-versus-host disease, immunoglobulin therapy, and ongoing immunosuppression further complicate timing and effectiveness of vaccinations. Despite established guidelines emphasizing timely immunization, several studies report low vaccination coverage and inadequate protective immunity in both groups. Barriers include intercurrent illness, variation in national immunization schedules, vaccine hesitancy, and uncertainties regarding optimal vaccination timing. In this position statement, the European Reference Network Transplant Child Working Group conducted a comprehensive literature review on the most relevant studies on vaccinations in pediatric transplant candidates and recipients, with the aim of developing evidence-based recommendations tailored to pediatric SOT and HSCT recipients. This position paper outlines current challenges, summarizes existing evidence, and proposes recommendations to improve immunization practices in this high-risk population.",
+    "journal": "Journal of pediatric gastroenterology and nutrition",
+    "pub_date": "2026",
+    "doi": "10.1002/jpn3.70523",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42563542/",
+    "summary_ja": "- 背景:小児移植患者は感染症による罹病・死亡リスクが高く、免疫抑制やGVHDなどによりワクチン効果が減弱し、移植前後の接種戦略確立が課題である。\n- 方法:European Reference Network TransplantChild Working Groupが小児SOT・HSCT患者を対象としたワクチン関連文献を包括的に review し、エビデンスに基づく推奨作成を試みた。\n- 結果:移植前のワクチン接種状況不良、移植後の免疫応答低下、国別接種スケジュールの差異、ワクチン忌避などが接種率・防御免疫獲得の障壁として報告されている。\n- 臨床的示唆:本ポジションペーパーは現状の課題を整理し、小児SOT・HSCT患者における予防接種実践改善のための具体的推奨を提示する。"
+  },
+  "42551535": {
+    "pmid": "42551535",
+    "title": "OSM-STAT3 signaling facilitates Long-term expansion of Pediatric Hepatic Organoids.",
+    "abstract": "",
+    "journal": "Journal of hepatology",
+    "pub_date": "2026",
+    "doi": "10.1016/j.jhep.2026.07.025",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42551535/",
+    "summary_ja": null
+  },
+  "42548074": {
+    "pmid": "42548074",
+    "title": "Incorporating ambient artificial intelligence scribes into pediatric gastroenterology documentation: Key considerations.",
+    "abstract": "",
+    "journal": "Journal of pediatric gastroenterology and nutrition",
+    "pub_date": "2026",
+    "doi": "10.1002/jpn3.70518",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42548074/",
+    "summary_ja": null
+  },
+  "42548066": {
+    "pmid": "42548066",
+    "title": "Disparities in child height at the time of inflammatory bowel disease diagnosis.",
+    "abstract": "Growth delay is associated with severe disease at inflammatory bowel disease (IBD) diagnosis. Variation in height at diagnosis is unknown. We hypothesize that growth delay at diagnosis is more common among individuals of low socioeconomic status.\nWe retrospectively evaluated prospectively collected data from patients <18 year and enrolled in the ImproveCareNow (ICN) Network <90 days after IBD diagnosis. The primary outcome was growth delay at enrollment, defined as height Z-score <-1. Insurance was dichotomized as presence or absence of private insurance.\nAmong 13,691 patients included, 6015 were female (44%), median age 13.6 year (interquartile range 11.0-15.8), 1583 (11.6%) Black, 9951 (72.7%) White, 935 (6.8%) other race, 723 (5.3%) Hispanic/Latino and 10,154 (74.2%) non-Hispanic/Latino ethnicity, and 9425 (68.8%) with, and 3011 (22.0%) without private insurance. Patients without private insurance were 20% more likely to have growth delay (N = 728, 24.2%) than those with private insurance (N = 1894, 20.1%; p < 0.001). Among Hispanic/Latino patients, 25.7% (N = 186) had growth delay, compared to 20.7% (N = 2,098) non-Hispanic/Latino (p = 0.001). Hispanic/Latino patients without private insurance had the greatest proportion with growth delay (N = 107, 28.6%) compared to all others (N = 2762, 20.7%; p < 0.001).\nHispanic/Latino children and those without private insurance are more likely to have growth delay at IBD diagnosis. Diagnostic delay and food insecurity are likely contributors. Medical care should be equitable despite life circumstance. This study identifies opportunities to improve care by emphasizing the importance of timely diagnosis. Improving access is necessary at each phase of care to ensure equitable timely diagnosis for all patients.",
+    "journal": "Journal of pediatric gastroenterology and nutrition",
+    "pub_date": "2026",
+    "doi": "10.1002/jpn3.70524",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42548066/",
+    "summary_ja": "・背景: IBD診断時の成長遅延は重症疾患と関連するが、診断時身長の格差は不明であり、低社会経済状況で成長遅延がより多いと仮説。\n・方法: ICN Networkに登録された18歳未満のIBD患者13,691例を対象に、診断後90日以内の身長Zスコア<-1(成長遅延)と保険加入・人種/民族との関連を後方視的に検討。\n・結果: 民間保険なし群は成長遅延が有意に多く(24.2% vs 20.1%)、Hispanic/Latino群も非Hispanicより多く(25.7% vs 20.7%)、民間保険なしのHispanic/Latino群が最も高率(28.6%)であった。\n・臨床的示唆: Hispanic/Latinoや無保険の小児はIBD診断時の成長遅延リスクが高く、診断・受診アクセスの遅延が要因と考えられ、公平な医療提供体制の構築が必要である。"
+  },
+  "42535519": {
+    "pmid": "42535519",
+    "title": "Glucagon-like peptide-1 receptor agonists in pediatrics: The pancreatology perspective.",
+    "abstract": "",
+    "journal": "Journal of pediatric gastroenterology and nutrition",
+    "pub_date": "2026",
+    "doi": "10.1002/jpn3.70512",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42535519/",
+    "summary_ja": null
+  },
+  "42535493": {
+    "pmid": "42535493",
+    "title": "Effectiveness of rifaximin in reducing central line-associated bloodstream infections in pediatric intestinal failure.",
+    "abstract": "Due to their dependence on parenteral nutrition, patients with intestinal failure (IF) are at an increased risk of central line-associated blood stream infections (CLABSIs). Ethanol lock therapies (ELTs) reduce the incidence of CLABSIs, but ELTs work locally in the line and have limited availability in the United States. Rifaximin is a non-absorbed, enteral antibiotic used to manage small intestinal bacterial overgrowth (SIBO). Our primary objective was to evaluate the effectiveness of rifaximin to prevent CLABSIs in pediatric IF patients.\nThis was a retrospective cohort study of patients with IF managed at a single pediatric center between January 2010 and December 2022. Patients in the cohort had at least 1 CLABSI prior to initiation of rifaximin. Data were collected for 12 months pre- and post-rifaximin initiation. CLABSI incidences were compared using Poisson regression with a log transformation.\nThirty-three patients were included. The observed incidence of CLABSI for all patients in our sample, before and after rifaximin initiation, was 10.2 (8.2, 12.7) and 7.3 (5.8, 9.2) per 1000 central line days, respectively, p = 0.03. Subgroup analysis showed patients who received rifaximin without ELT had signification reduction in CLABSIs, 8.3 versus 3.0 (p < 0.001). There were no statistically significant differences in the proportion of gram-positive or gram-negative bacteria or yeast isolated before and after rifaximin.\nChildren with IF who were treated with rifaximin experienced fewer CLABSI events, suggesting that rifaximin is a viable option for CLABSI prophylaxis in pediatric IF patients.",
+    "journal": "Journal of pediatric gastroenterology and nutrition",
+    "pub_date": "2026",
+    "doi": "10.1002/jpn3.70522",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42535493/",
+    "summary_ja": "・背景：小児腸管不全患者は中心静脈カテーテル関連血流感染症（CLABSI）のリスクが高く、エタノールロック療法（ELT）は有効だが局所作用かつ入手性に限りがある。リファキシミンはSIBO治療に用いられる非吸収性抗菌薬である。\n\n・方法：2010〜2022年に単一小児施設で管理されたIF患者33例を対象に、リファキシミン導入前後12か月のCLABSI発生率をレトロスペクティブに比較（Poisson回帰）。\n\n・結果：リファキシミン導入前後でCLABSI発生率は10.2から7.3/1000カテーテル日に有意に減少（p=0.03）。ELT非併用例ではさらに顕著な減少（8.3→3.0、p<0.001）を認めた。分離菌種の分布に有意差はなかった。\n\n・臨床的示唆：リファキシミンは小児IF患者におけるCLABSI予防の有効な選択肢となる可能性がある。"
+  },
+  "42535488": {
+    "pmid": "42535488",
+    "title": "Assessment of professional practise on Helicobacter pylori in paediatrics: A pan-European study.",
+    "abstract": "Recent guidelines provide insightful information on the diagnosis and treatment of Helicobacter pylori infection. The knowledge of the latest guidelines for European paediatric gastroenterologists is currently being discussed. This study aimed to evaluate the current knowledge regarding paediatric H. pylori management.\nMembers from the National Societies of the European Society of Paediatric Gastroenterology, Hepatology, and Nutrition (ESPGHAN) were invited to complete an online questionnaire. Descriptive and statistical analyses were conducted using SPSS®.\nA questionnaire was completed by 508 paediatric healthcare professionals from 32 countries (60% were specialists, 82% worked in hospitals and 49% in university hospitals). Of these, 360 (71%) had a background in paediatric gastroenterology. In 30% of cases, the local prevalence of H. pylori was unknown. Primary testing indications included duodenal or gastric erosions (85%), oral iron-refractory anaemia (59%) and a positive family history of gastric cancer (41%), 7.5% complied with the guidelines. Fifty-seven per cent requested invasive diagnostic tests, including culture (66%) and molecular tests (34%). The test-and-treat strategy was considered by 43% of clinicians, and more than half of respondents would include probiotics in eradication. Amoxicillin-based therapies represented 77% of prescriptions, with 54% opting for clarithromycin for empirical treatment. Additionally, the eradication regimens varied significantly across different European regions, with limited/small differences by clinician category.\nThis study among healthcare professionals revealed that H. pylori infection management does not entirely follow the guidelines regarding indications, testing and treatment regimens. There is a need for education in Europe to increase literacy and clinical updates.",
+    "journal": "Journal of pediatric gastroenterology and nutrition",
+    "pub_date": "2026",
+    "doi": "10.1002/jpn3.70515",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42535488/",
+    "summary_ja": "・背景：小児H. pylori感染症の診断・治療に関する最新ガイドラインが存在するが、欧州小児消化器科医の認知・実践状況は不明である。\n\n・方法：ESPGHAN加盟32カ国の医療者508名を対象にオンライン質問紙調査を実施し、記述統計・統計解析を行った。\n\n・結果：診断適応やガイドライン準拠率は7.5%と低く、侵襲的検査（培養66%、分子検査34%）を57%が要求、除菌療法にプロバイオティクスを半数以上が併用、地域間で治療レジメンに差異があった。\n\n・臨床的示唆：現行診療はガイドラインに完全準拠しておらず、欧州全体で教育・知識更新の必要性が示された。"
+  },
+  "42535439": {
+    "pmid": "42535439",
+    "title": "Infliximab originator and biosimilars have similar efficacy in children with inflammatory bowel disease.",
+    "abstract": "To evaluate whether children with inflammatory bowel disease (IBD) who initiate infliximab originator versus biosimilar experience similar clinical outcomes at 12 months.\nWe conducted a retrospective cohort study evaluating prospectively collected data from the ImproveCareNow (ICN) Network registry. Children <18 years old initiating infliximab originator or biosimilar between January 2016 and September 2022 were eligible. Matched groups initiating originator and biosimilar were created with propensity score matching based on age at initiation, sex, race, year therapy initiated, and IBD type. Clinical disease activity, growth, and laboratory values were assessed at 12 months between the two groups using χ2, Fisher's exact test, or Wilcoxon rank sum test. Cox proportional hazard models were created to compare time to drug discontinuation, hospitalizations, and surgery between the two groups.\nAfter propensity score matching, 428 children were included, 214 originator and 214 biosimilar starters. Efficacy at 12 months was similar as assessed by steroid-free clinical remission (p = 0.25), height-z-score (p = 0.68), hematocrit (p = 0.37), albumin (p = 0.40), and erythrocyte sedimentation rate (p = 0.06). Time to infliximab discontinuation (p = 0.21), time to surgery (p = 0.79), and time to hospitalization (p = 0.66) were comparable between infliximab originator and biosimilar users. Fecal calprotectin values were statistically higher (p = 0.032) at 12 months in patients started on the infliximab biosimilar versus originator, but only 30% of patients had values.\nThis is one of the largest, multicenter studies to evaluate infliximab biosimilar use. Rigorous propensity score-matched methods demonstrated no differences in outcomes or treatment durability between children with IBD initiating infliximab originator or biosimilars.",
+    "journal": "Journal of pediatric gastroenterology and nutrition",
+    "pub_date": "2026",
+    "doi": "10.1002/jpn3.70508",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42535439/",
+    "summary_ja": "・背景: 小児IBDにおけるinfliximabオリジナル製剤とバイオシミラーの臨床効果の同等性は十分に検証されていない。\n\n・方法: ICN Networkレジストリを用い、18歳未満のIBD患児をプロペンシティスコアマッチングでオリジナル群・バイオシミラー群各214例に分け、12ヵ月時点の臨床転帰を後方視的に比較した。\n\n・結果: ステロイドフリー臨床的寛解、身長z-score、ヘマトクリット、アルブミン、CRP、薬剤中止・手術・入院までの時間に有意差はなかったが、便中calprotectinはバイオシミラー群で有意に高値であった（データ取得率30%）。\n\n・臨床的示唆: 厳密なマッチング解析により、小児IBDにおけるinfliximabオリジナルとバイオシミラーの有効性・治療継続性は同等であり、バイオシミラーへの切替を支持する。"
+  },
+  "42520290": {
+    "pmid": "42520290",
+    "title": "The ImproveCareNow Registry: Prediction of remission rates in paediatric Crohn's disease.",
+    "abstract": "Identifying predictors of poor outcomes (POPO) in paediatric Crohn's disease (CD) may guide therapy. We assessed predictors of 2-year non-remission (primary outcome) and time to first remission (TFR), corticosteroid-free remission (TCSFR, ≥3 months corticosteroid (CS) withdrawal and sustained remission (TSR, ≥6 months) (secondary outcomes) in paediatric CD.\nWe retrospectively analysed prospectively collected data from 6959 paediatric CD patients (<18 years; 2007-2023) in the ImproveCareNow Registry. Remission was defined as a short Paediatric CD Activity Index <10. Logistic and Cox regression (α = 0.05), using R 4.5.0 with multiple imputation, identified predictors for both outcomes (at 0, 1, 5, 6, 12, and 24 months).\nFor the primary outcome, 53/794 patients (6.7%) failed to achieve remission during 2-year follow-up. Female sex (odds ratio [OR] = 3.12, 95% confidence interval [CI] 1.48-6.55) and need for ustekinumab after 1 year (OR = 14.70, 95% CI 4.37-49.46) predicted non-remission. For the secondary outcomes (n = 3290), mean TFR, TCSFR and TSR were 4.5, 16.4, and 8.2 months, respectively. Longer TFR was predicted by female sex (hazard ratio [HR] = 0.81, 95% CI 0.71-0.92) and the need for infliximab (IFX, HR = 1.15, 95% CI 1.00-1.32) at first visit. Longer TCSFR was associated with female sex (HR = 0.85, 95% CI 0.78-0.93), race (white HR = 0.83, 95% CI 0.74-0.93 and Asian HR = 1.42, 95% CI 1.05-1.92) and type of treatment at first visit (faster if IFX, slower if CS or immunomodulators). For TSR, predictors included age at diagnosis (HR = 1.06, 95% CI 1.02-1.11) and body mass index (BMI) (HR = 0.97, 95% CI 0.94-1.00).\nClinical parameters (female sex, younger age, and higher BMI) and therapeutic strategy (early/late use of biologicals) are POPO and associated with longer time to remission in paediatric CD.",
+    "journal": "Journal of pediatric gastroenterology and nutrition",
+    "pub_date": "2026",
+    "doi": "10.1002/jpn3.70519",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42520290/",
+    "summary_ja": "・背景：小児Crohn病における予後不良の予測因子（POPO）は治療方針決定に有用と考えられるが、詳細は未確立である。\n\n・方法：ImproveCareNow Registry登録の6959例（<18歳、2007-2023年）を対象に後方視的解析し、2年間の非寛解率および寛解・CS離脱寛解・持続寛解までの時間の予測因子をロジスティック/Cox回帰で検討した。\n\n・結果：女性、1年後のウステキヌマブ必要例は非寛解と関連。女性、白人、初診時IFX非使用は寛解までの時間が長く、診断時年齢が高いほど、BMIが低いほど持続寛解までの時間が長かった。\n\n・臨床的示唆：女性、若年、高BMIおよびbiologics導入時期などがPOPOであり、個別化治療戦略検討に役立つ可能性がある。"
+  },
+  "42504747": {
+    "pmid": "42504747",
+    "title": "Are there age-related differences in the frequency of post-reflux peristaltic waves during impedance-pH monitoring?",
+    "abstract": "The post-reflux swallow-induced peristaltic wave (PSPW) reflects esophageal chemical clearance. Pediatric data on this parameter remain limited. The aim of this study was to evaluate the behavior of the PSPW in children of different ages.\nWe conducted a retrospective analysis of pediatric multichannel intraluminal pH/impedance, studies were performed for suspected gastroesophageal reflux (GER). We included those with a normal reflux index, symptom index <50%, symptom association probability <95% and a number of reflux episodes within normal parameters for age. Patients were divided into three groups according to their age: Group I (0-≤2 years), Group II (>2-≤10 years), and Group III (>10-≤18 years). The PSPW index was calculated manually.\nTwo hundred and sixty-one studies were analyzed, 195 were included (median age 6.3 years, 54% female). Group I showed significantly more reflux events (38 vs. 26 and 32 in Groups II-III, p = 0.004) with predominance of non-acid reflux (p < 0.001) and greater proximal extent (p = 0.005). PSPW index was significantly lower in Group I (42.1%) compared to Groups II (52.6%) and III (50.0%) (p = 0.009).\nIn this pediatric cohort, a higher number of gastroesophageal reflux episodes, a predominance of non-acid reflux and greater proximal extent were observed in infants ≤2 years, as well as reduced chemical clearance, which is reflected in a lower PSPW index compared to the other groups analyzed. Age-specific interpretation of PSPW could improve the evaluation of pediatric GER and therapeutic management.",
+    "journal": "Journal of pediatric gastroenterology and nutrition",
+    "pub_date": "2026",
+    "doi": "10.1002/jpn3.70511",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42504747/",
+    "summary_ja": "- 背景:PSPW指数は食道化学的クリアランスを反映するが、小児での年齢別データは限られている。\n- 方法:小児のpH/インピーダンス検査を後方視的に解析し、正常範囲の逆流所見を示す195例を年齢別3群（0-2歳、2-10歳、10-18歳）に分けPSPW指数を評価した。\n- 結果:2歳以下群は逆流回数が多く非酸性逆流優位・近位進展が大きく、PSPW指数も他群より有意に低かった(42.1% vs 52.6%, 50.0%)。\n- 臨床的示唆:PSPW指数の年齢別解釈が小児GERの評価と治療方針決定の精度向上に寄与する可能性がある。"
+  },
+  "42504736": {
+    "pmid": "42504736",
+    "title": "Harnessing language in pediatric disorders of gut-brain interaction: A practical guide to suggestive communication.",
+    "abstract": "",
+    "journal": "Journal of pediatric gastroenterology and nutrition",
+    "pub_date": "2026",
+    "doi": "10.1002/jpn3.70520",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42504736/",
+    "summary_ja": null
+  },
+  "42265886": {
+    "pmid": "42265886",
+    "title": "Colonic dysmotility in children with functional constipation and psychiatric and developmental disorders.",
+    "abstract": "",
+    "journal": "Journal of pediatric gastroenterology and nutrition",
+    "pub_date": "2026",
+    "doi": "10.1002/jpn3.70470",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42265886/",
+    "summary_ja": null
+  },
+  "42257287": {
+    "pmid": "42257287",
+    "title": "Correction to \"Subcutaneous infliximab use in children with inflammatory bowel disease in an Australian center\".",
+    "abstract": "",
+    "journal": "Journal of pediatric gastroenterology and nutrition",
+    "pub_date": "2026",
+    "doi": "10.1002/jpn3.70478",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42257287/",
+    "summary_ja": null
+  },
+  "42257280": {
+    "pmid": "42257280",
+    "title": "Introducing new technology to your pediatric gastroenterology practice: Navigating the business side of healthcare.",
+    "abstract": "",
+    "journal": "Journal of pediatric gastroenterology and nutrition",
+    "pub_date": "2026",
+    "doi": "10.1002/jpn3.70477",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42257280/",
+    "summary_ja": null
+  },
+  "42246211": {
+    "pmid": "42246211",
+    "title": "Anesthesia-free transoral endoscopy using a novel modified pacifier in early infancy.",
+    "abstract": "",
+    "journal": "Journal of pediatric gastroenterology and nutrition",
+    "pub_date": "2026",
+    "doi": "10.1016/j.cgh.2021.11.021",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42246211/",
+    "summary_ja": null
+  },
+  "42220282": {
+    "pmid": "42220282",
+    "title": "A pilot randomized controlled trial of the self-management assistance for recommended treatment inflammatory bowel disease app for adolescents with inflammatory bowel disease.",
+    "abstract": "We examined the use of a mobile self-management assistance for recommended treatment (SMART) inflammatory bowel disease (IBD) app to improve health outcomes compared to an attention control (AC) arm in adolescents with IBD. Thirty-five participants (M = 15 years; 48% female, 75% white) were randomly assigned to the SMART IBD app or AC arm and completed daily diaries at baseline followed by a 1-month intervention and then completed the same daily diaries at post-treatment. Results demonstrated a significant treatment by time effect for perceived stress (F = 4.32, p < 0.05) and sleep quantity (F = 7.74, p < 0.01), with participants receiving the SMART IBD app intervention reporting a significant decrease in stress and increase in average sleep quantity from baseline to post-treatment compared to the AC arm. Using the SMART IBD app may improve health outcomes important to the overall management of IBD. Trial Registration: ClinicalTrials.gov identifier: NCT06023667 (https://clinicaltrials.gov/study/NCT06023667).",
+    "journal": "Journal of pediatric gastroenterology and nutrition",
+    "pub_date": "2026",
+    "doi": "10.1097/MPG.0b013e318175dda1",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42220282/",
+    "summary_ja": "・背景:小児IBD患者の自己管理支援を目的としたモバイルアプリ（SMART IBD app）の健康アウトカムへの効果は未確立である。\n・方法:IBDを有する青少年35名をSMART IBDアプリ群とアテンションコントロール群に無作為割付し、1ヵ月間の介入前後で日誌データを収集し比較した。\n・結果:SMART IBDアプリ群はAC群と比較し、知覚的ストレスの有意な減少と睡眠量の有意な増加を示した。\n・臨床的示唆:SMART IBDアプリはストレスや睡眠など、IBD管理に重要な健康アウトカムの改善に寄与する可能性がある。"
+  },
+  "42212585": {
+    "pmid": "42212585",
+    "title": "A systematic review of celiac disease recommendations for children with Down syndrome.",
+    "abstract": "This systematic review critically compares current international guidelines and recommendations from major medical organizations on the management of celiac disease (CD) in individuals with Down syndrome (DS), in light of the increased disease prevalence and the diagnostic challenges posed by overlapping clinical and immunological features. A comprehensive search of PubMed, Embase, Scopus, and international association websites (through June 1, 2025) identified guidelines, position papers, and expert statements endorsed by national or international bodies. Two reviewers independently screened and selected studies, and guideline quality was assessed using the AGREE II tool. Of 929 records identified, seven clinical practice guidelines, and two clinical practice reports were included. Recommendations varied widely, ranging from universal screening (e.g., British Society of Paediatric Gastroenterology, Hepatology and Nutrition [BSPGHAN], Down Syndrome Medical Interest Group [DSMIG], European Society for the Study of Coeliac Disease [ESsCD], European Society for Pediatric Gastroenterology, Hepatology, and Nutrition [ESPGHAN] and North American Society for Pediatric Gastroenterology, Hepatology, and Nutrition [NASPGHAN]) to symptom-based testing (e.g., American Academy of Pediatrics [AAP], American Gastroenterological Association [AGA], American College of Gastroenterology [ACG], and National Institute for Health and Care Excellence [NICE]). While there is consensus on serologic screening using tissue transglutaminase IgA (tTG-IgA) and total IgA, interpretation is complicated by the high prevalence of selective IgA deficiency in DS, often necessitating IgG-based testing. HLA genotyping is not generally recommended for routine screening but may help exclude CD in non-susceptible individuals and support biopsy-sparing diagnostic pathways. In conclusion, marked heterogeneity exists among current guidelines. Harmonized, evidence-based recommendations are needed. HLA-DQ2/DQ8 genotyping should be used primarily for its high negative predictive value to exclude CD in non-susceptible individuals with DS. This tiered approach offers a clinically actionable strategy to reduce diagnostic delays, minimize unnecessary procedures, and improve care equity for children with DS.",
+    "journal": "Journal of pediatric gastroenterology and nutrition",
+    "pub_date": "2026",
+    "doi": "10.1053/j.gastro.2014.05.003",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42212585/",
+    "summary_ja": "・背景：Down症候群(DS)患児はセリアック病(CD)有病率が高く、臨床・免疫学的特徴の重複により診断が難しいが、国際的な管理指針は統一されていない。\n\n・方法：PubMed等を用いてCD管理に関する国際ガイドライン・提言を系統的に検索し、AGREE IIツールで質評価を行い比較した（7件のガイドライン、2件の診療報告を採択）。\n\n・結果：BSPGHAN・ESPGHAN等は普遍的スクリーニングを推奨する一方、AAP・NICE等は症状ベース検査を推奨し方針は大きく異なる。tTG-IgAとtotal IgAによる血清学的スクリーニングは共通するが、DSにおける選択的IgA欠損の高頻度がIgG検査併用を必要とする複雑さを生む。HLA遺伝子検査は日常スクリーニングには非推奨だが、非感受性者除外や生検回避診断経路に有用。\n\n・臨床的示唆：ガイドライン間の不均一性が顕著であり、HLA-DQ2/DQ8の高い陰性予測値を活用した段階的診断戦略により、診断遅延・不要な検査を減らし、DS児のケアの公平性向上が期待される。"
+  },
+  "42212584": {
+    "pmid": "42212584",
+    "title": "Clinical, social, and motility factors influencing transanal irrigation response in pediatric patients.",
+    "abstract": "Chronic constipation (CC) and fecal incontinence (FI) are significant problems for pediatric patients. Transanal irrigation (TAI) is a therapy that effectively relieves symptoms in patients with disorders of gut-brain interactions (DGBI) or organic CC/FI. This mixed-methods study aimed to identify predictive factors for TAI adherence and outcomes in pediatric patients.\nOut of 151 screened patients, 63 were eligible for enrollment, with a 60.3% response rate and 97.3% survey completion. We analyzed adherence, symptom severity, quality of life (QOL), and manometry data from 38 patients who initiated TAI at Nemours Children's Hospital (2017-2023). Additionally, seven parents of noninitiating patients were interviewed to assess barriers.\nNo significant differences were found in TAI-related difficulties (pain, independence, and technical issues), though patients with DGBI etiologies reported slightly more psychological difficulties with TAI (p = 0.077). Adherent patients showed fewer CC symptoms and higher QOL compared to nonadherent patients (p = 0.002) at the time of interview. Attention-deficit/hyperactivity disorder (ADHD), diagnosed in 42.1% of patients, was a significant predictor of nonadherence, with these patients reporting more severe symptoms and lower psychosocial scores. Manometry results did not predict outcomes, indicating a need for improved diagnostics. Barriers to TAI initiation included insurance challenges, fear of trauma, and logistical obstacles.\nPatients with organic and DGBI CC/FI experienced similar challenges using TAI. Adherence was associated with improved symptoms and QOL. ADHD was a significant predictor of nonadherence, underscoring the need for tailored interventions. Future research should focus on long-term outcomes and strategies to enhance adherence, particularly for children with ADHD.",
+    "journal": "Journal of pediatric gastroenterology and nutrition",
+    "pub_date": "2026",
+    "doi": "10.1542/peds.2013-1580",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42212584/",
+    "summary_ja": "・背景: 小児の慢性便秘(CC)・便失禁(FI)に対しTAIは有効だが、アドヒアランスや効果に関わる予測因子は不明。\n・方法: 151例中63例が適格、38例のTAI導入患者のアドヒアランス・症状・QOL・肛門直腸内圧検査データを解析し、非導入例の保護者7名に障壁を聴取。\n・結果: アドヒアランス良好群は症状軽減・QOL向上(p=0.002)。ADHD(42.1%)は非アドヒアランスの有意な予測因子で症状重症・心理社会スコア低下と関連。マノメトリーは転帰を予測せず、保険・外傷への恐怖・物流的障壁が導入障害となった。\n・臨床的示唆: DGBIと器質性CC/FIでTAIの困難さは同様であり、ADHD児には個別化した介入戦略とアドヒアランス向上策、診断精度改善が必要。"
+  },
+  "42199055": {
+    "pmid": "42199055",
+    "title": "Patterns in integrative medicine usage among pediatric patients in a disorders of gut-brain interaction clinic.",
+    "abstract": "",
+    "journal": "Journal of pediatric gastroenterology and nutrition",
+    "pub_date": "2026",
+    "doi": "10.3389/fnins.2023.1251470",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42199055/",
+    "summary_ja": null
+  },
+  "42191459": {
+    "pmid": "42191459",
+    "title": "A multisociety consensus statement on a new common definition and diagnostic criteria for PSVD or NCPF.",
+    "abstract": "Non-cirrhotic portal hypertension has historically been described using heterogeneous and region-specific terminology, such as idiopathic portal hypertension (IPH), non-cirrhotic portal fibrosis (NCPF), obliterative portal venopathy, and nodular regenerative hyperplasia, leading to substantial variability in diagnosis, reporting, and international research collaboration. Differences in guideline definitions from major societies (AASLD, EASL, and APASL), together with the presence of characteristic histologic lesions in patients without clinically overt portal hypertension, have further complicated disease classification. To address these challenges, a large, multisociety, international initiative was convened to harmonize nomenclature and diagnostic criteria. Representatives from liver, pathology, and pediatric hepatology societies across the Americas, Europe, and Asia participated in a structured consensus process that included specialized working groups and external Delphi validation. The initiative produced a globally harmonized and implementable diagnostic framework. Consensus was reached that the terms porto-sinusoidal vascular disorder (PSVD) and NCPF may be used interchangeably when identical diagnostic criteria are applied, and that they should be written as PSVD or NCPF. The diagnosis was defined as fundamentally clinicopathological, requiring integrated assessment. Core principles include the need for a high-quality liver biopsy (≥10 mm), mandatory exclusion of cirrhosis, and systematic exclusion of specific alternative conditions. Importantly, the consensus recognizes that PSVD or NCPF may be diagnosed even without clinical portal hypertension and may coexist with other liver diseases, provided cirrhosis is excluded. Standardized major and minor histologic criteria were developed collaboratively by expert pathologists and externally validated. Features of portal hypertension were harmonized into specific and nonspecific categories applicable to routine clinical practice. An integrated diagnostic scoring system incorporating histology, clinical features, associated conditions, and concommitant etiologies was developed and validated using the Delphi method. This consensus provides the first internationally endorsed, unified framework for the diagnosis of PSVD or NCPF. Its global implementation is expected to reduce diagnostic variability, improve comparability across regions, and facilitate the development of robust, internationally harmonized clinical and translational research cohorts.",
+    "journal": "Journal of hepatology",
+    "pub_date": "2026",
+    "doi": "10.1016/j.jhep.2026.04.030",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42191459/",
+    "summary_ja": "・背景：非硬変性門脈圧亢進症は地域ごとに用語（IPH、NCPF等）が異なり、AASLD/EASL/APASL間で定義も相違し、診断・研究協力に支障。\n・方法：肝臓・病理・小児肝臓病学の国際多学会が合同で作業部会とDelphi法による外部検証を含む合意形成プロセスを実施。\n・結果：PSVDとNCPFは同一診断基準下で互換可能とし、生検（≥10mm）に基づく臨床病理学的診断、肝硬変除外、主要/微小組織学的基準、門脈圧亢進所見の分類、統合診断スコアリングシステムを策定・検証。\n・臨床的示唆：国際的に統一された診断枠組みにより診断のばらつきを減らし、地域間比較可能性向上と国際共同研究基盤構築に寄与することが期待される。"
+  },
+  "42191125": {
+    "pmid": "42191125",
+    "title": "A multisociety consensus statement on a new common definition and diagnostic criteria for PSVD or NCPF.",
+    "abstract": "Noncirrhotic portal hypertension has historically been described using heterogeneous and region-specific terminology-such as idiopathic portal hypertension (IPH), noncirrhotic portal fibrosis (NCPF), obliterative portal venopathy, and nodular regenerative hyperplasia-leading to substantial variability in diagnosis, reporting, and international research collaboration. Differences in guideline definitions from major societies (AASLD, EASL, and APASL), together with the presence of characteristic histologic lesions in patients without clinically overt portal hypertension, have further complicated disease classification. To address these challenges, a large, multisociety, international initiative was convened to harmonize nomenclature and diagnostic criteria. Representatives from liver, pathology, and pediatric hepatology societies across the Americas, Europe, and Asia participated in a structured consensus process that included specialized working groups and external Delphi validation. The initiative produced a globally harmonized and implementable diagnostic framework. Consensus was reached that the terms porto-sinusoidal vascular disorder (PSVD) and NCPF may be used interchangeably when identical diagnostic criteria are applied, and that they should be written as PSVD or NCPF . The diagnosis was defined as fundamentally clinicopathological, requiring integrated assessment. Core principles include the need for a high-quality liver biopsy (≥10 mm), mandatory exclusion of cirrhosis, and systematic exclusion of specific alternative conditions. Importantly, the consensus recognizes that PSVD or NCPF may be diagnosed even without clinical portal hypertension and may coexist with other liver diseases, provided cirrhosis is excluded. Standardized major and minor histologic criteria were developed collaboratively by expert pathologists and externally validated. Features of portal hypertension were harmonized into specific and nonspecific categories applicable to routine clinical practice. An integrated diagnostic scoring system incorporating histology, clinical features, associated conditions, and concommitant etiologies was developed and validated using the Delphi method. This consensus provides the first internationally endorsed, unified framework for the diagnosis of PSVD or NCPF. Its global implementation is expected to reduce diagnostic variability, improve comparability across regions, and facilitate the development of robust, internationally harmonized clinical and translational research cohorts.",
+    "journal": "Hepatology (Baltimore, Md.)",
+    "pub_date": "2026",
+    "doi": "10.1097/HEP.0000000000001768",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42191125/",
+    "summary_ja": "・背景：非硬変性門脈圧亢進症はIPH、NCPF等の異名や学会間定義の相違により診断・報告に混乱があった。\n・方法：肝臓・病理・小児肝臓病学の国際多学会代表がワーキンググループとDelphi法により統一診断基準を策定。\n・結果：PSVDとNCPFは同一基準下で同義語として併記可能とされ、生検（≥10mm）に基づく臨床病理学的診断・肝硬変除外・主要/副次組織学的基準・スコアリングシステムが確立された。\n・臨床的示唆：本統一基準の国際的普及により診断のばらつきが減少し、国際共同研究・臨床コホート構築が促進されると期待される。"
+  },
+  "42187131": {
+    "pmid": "42187131",
+    "title": "Duodenal vascular malformation in a pediatric patient: A rare cause of chronic anemia.",
+    "abstract": "",
+    "journal": "Journal of pediatric gastroenterology and nutrition",
+    "pub_date": "2026",
+    "doi": "10.1007/s00270-011-0123-0",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42187131/",
+    "summary_ja": null
+  },
+  "42187129": {
+    "pmid": "42187129",
+    "title": "From bilirubin to breakthroughs: Contemporary outcomes in pediatric liver transplantation for cystic fibrosis.",
+    "abstract": "",
+    "journal": "Journal of pediatric gastroenterology and nutrition",
+    "pub_date": "2026",
+    "doi": "10.1002/jpn3.70392",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42187129/",
+    "summary_ja": null
+  },
+  "42179357": {
+    "pmid": "42179357",
+    "title": "False positive autoimmune markers and elevated immunoglobulin G in genetically confirmed Wilson disease.",
+    "abstract": "Wilson disease (WD) and autoimmune hepatitis (AIH) are leading causes of chronic liver disease in children and often present with overlapping clinical and immunological features, complicating early diagnosis. This retrospective study evaluated serum immunoglobulin G (IgG) and autoantibody profiles in 79 genetically confirmed, treatment-naive pediatric WD patients compared with 112 AIH controls. Elevated IgG (>1.1× upper limit of normal) was observed in 82.3% of WD patients, while 31.5% tested positive for at least one autoantibody, including anti-smooth muscle antibody, anti-nuclear antibody, and anti-liver kidney microsomal. Notably, 20.2% of WD patients met the simplified diagnostic criteria for AIH. Compared to AIH, WD patients had significantly lower IgG levels and less frequent autoantibody positivity. Histology revealed distinguishing features, with WD showing more steatosis and ballooning but less interface hepatitis and plasma cell infiltration. These findings highlight the potential for diagnostic misclassification. Comprehensive evaluation, including histology and genetic testing, remains critical to differentiate WD from AIH and guide appropriate therapy.",
+    "journal": "Journal of pediatric gastroenterology and nutrition",
+    "pub_date": "2026",
+    "doi": "10.4254/wjh.v16.i8.1111",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42179357/",
+    "summary_ja": "・背景：Wilson病（WD）と自己免疫性肝炎（AIH）は臨床・免疫学的所見が重複し、鑑別診断が困難な小児慢性肝疾患である。\n・方法：遺伝学的に確定した未治療小児WD患者79例とAIH対照112例で、血清IgGおよび自己抗体プロファイル、組織像を後方視的に比較検討した。\n・結果：WD患者の82.3%でIgG高値、31.5%で自己抗体陽性、20.2%がAIH簡易診断基準を満たしたが、AIH群よりIgG値・自己抗体陽性率は有意に低く、組織学的には脂肪化・膨化変性が多く、界面性肝炎・形質細胞浸潤は少なかった。\n・臨床的示唆：WDはAIHと誤診されうるため、組織学的評価と遺伝学的検査を含む包括的評価が適切な治療選択に不可欠である。"
+  },
+  "42179356": {
+    "pmid": "42179356",
+    "title": "Hospital costs for infants with brief resolved unexplained events given a diagnosis of gastroesophageal reflux disease.",
+    "abstract": "",
+    "journal": "Journal of pediatric gastroenterology and nutrition",
+    "pub_date": "2026",
+    "doi": "10.1002/jpn3.70460",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42179356/",
+    "summary_ja": null
+  },
+  "42179344": {
+    "pmid": "42179344",
+    "title": "High prevalence of ultra-short celiac disease in children with low anti-tissue transglutaminase immunoglobulin A levels: The risk of misdiagnosis without bulb biopsy.",
+    "abstract": "Despite recent advances in diagnostics, celiac disease (CD) diagnosis remains challenging. Ultra-short celiac disease (USCD) has been proposed as a distinct phenotype characterized by villous atrophy confined to the duodenal bulb, positive celiac serology, and clinical features consistent with CD. This study aimed to assess the impact of adherence to European Society for Pediatric Gastroenterology, Hepatology and Nutrition (ESPGHAN) guidelines, including duodenal bulb biopsy, in the diagnostic process of CD, and to investigate whether omission of bulb sampling may have led to misclassification of potential celiac disease (PCD).\nWe conducted a retrospective, observational study of pediatric patients evaluated for CD between June 2017 and December 2024 at a tertiary-care center. Patients undergoing biopsy-based diagnosis were stratified by biopsy protocol: distal duodenum (DII) versus distal duodenum plus bulb (DII + Bulb). A logistic regression model using tissue transglutaminase immunoglobulin A (TTG-IgA) levels as predictor estimated the likelihood of missed USCD among PCD cases in the DII group.\nOut of 474 patients undergoing endoscopy, 361 had TTG-IgA <10 × ULN. Of these, 24 were in DII group and 337 in DII + Bulb group. In the latter, 140 (41.5%) were classified as classic CD, 54 (16%) as PCD, and 143 (42.4%) as USCD. PCD detection dramatically dropped after full adherence to guidelines. The logistic model identified seven of nine PCD patients in DII group as likely USCD.\nSystematic duodenal bulb biopsy significantly improves USCD detection in patients with low TTG-IgA levels. PCD cases diagnosed without bulb sampling warrant reassessment, especially during transition to adult care.",
+    "journal": "Journal of pediatric gastroenterology and nutrition",
+    "pub_date": "2026",
+    "doi": "10.1053/j.gastro.2019.04.004",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42179344/",
+    "summary_ja": "・背景：ultra-short celiac disease（USCD）は十二指腸球部に限局した絨毛萎縮を特徴とするCDの一亜型であり、球部生検を省略するとpotential celiac disease（PCD）として誤分類される可能性が指摘されている。\n\n・方法：2017年6月〜2024年12月に単施設で内視鏡検査を受けた小児患者を対象に、生検プロトコル（DII単独 vs DII+球部）別に後方視的に検討し、TTG-IgA値を予測因子とするロジスティック回帰モデルでDII群におけるUSCD見逃しの可能性を推定した。\n\n・結果：TTG-IgA<10×ULNの361例中、DII+球部群337例では classic CD 41.5%、PCD 16%、USCD 42.4%と分類され、球部生検の遵守によりPCD検出率が大幅に低下した。DII群のPCD9例中7例がUSCDである可能性が示された。\n\n・臨床的示唆：低TTG-IgA例では系統的な球部生検がUSCD検出率を有意に改善するため、球部生検なしで診断されたPCD例、特に成人診療への移行期の患者は再評価が必要である。"
+  },
+  "42179335": {
+    "pmid": "42179335",
+    "title": "Nutritional adequacy and diet diversity following a tube weaning program.",
+    "abstract": "Limited research has examined nutritional changes following tube weaning. The main objective of this study was to investigate the adequacy and quality of nutrition, growth, and gastrointestinal symptoms in children undergoing a 3-week outpatient tube weaning program based on hunger provocation.\nPatient records from all children treated with a tube weaning program at Helsinki University Children's Hospital between May 2016 and May 2024 were reviewed retrospectively for nutritional intake, gastrointestinal symptoms, and growth.\nThe study included 51 patients (median age: 2.7 years [interquartile range, IQR 2.1-4.2]). Median duration of tube feeding before program was 2.4 years (IQR 1.9-3.3). In the last available follow-up, 37/51 (72.5%) of the children were successfully weaned off tube feeding. After the program, the median proportion of total energy intake derived from regular food and drinks increased from 6.2% to 77.2%, and the median energy derived from tube feeding decreased from 92.9% to 0.0% (p < 0.05 for all). Dietary diversity increased during follow-up, and a decrease in gastrointestinal symptoms was observed. After weaning, the intake of several vitamins and minerals from regular food alone did not meet the recommended levels and required supplementation.\nOur tube weaning program was effective in decreasing tube dependency, improving oral intake, and increasing dietary diversity. To ensure adequate energy, vitamin, and mineral intake, a sufficiently long-term follow-up after weaning and appropriate dietary supplementation are essential to prevent potential deficiencies. Securing growth and nutritional status requires a regular evaluation of dietary adequacy by a nutrition specialist.",
+    "journal": "Journal of pediatric gastroenterology and nutrition",
+    "pub_date": "2026",
+    "doi": "10.1111/mcn.13693",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42179335/",
+    "summary_ja": "・背景: 経管栄養離脱後の栄養状態変化に関する研究は限られている。\n・方法: 2016-2024年にHelsinki大学小児病院で3週間の飢餓誘発型外来チューブ離脱プログラムを受けた51例の栄養摂取・消化器症状・成長を後方視的に検討。\n・結果: 72.5%が離脱成功し、経口摂取由来エネルギー割合は6.2%から77.2%に増加、食事多様性向上と消化器症状減少を認めたが、離脱後も一部ビタミン・ミネラルは推奨量に達せず補充が必要。\n・臨床的示唆: 離脱成功後も長期フォローアップと栄養補充、栄養士による定期的な食事評価が成長・栄養状態維持に重要である。"
+  },
+  "42179331": {
+    "pmid": "42179331",
+    "title": "Improving nutritional assessment in pediatric anorexia nervosa: Clinical value of key serum biomarkers.",
+    "abstract": "Reliable biochemical markers of starvation are needed to improve detection and monitoring of starvation in pediatric anorexia nervosa (AN), thus we explored new and revisited old potential serum biochemical markers.\nIn this prospective cohort study we included 65 pediatric patients with AN. Clinical data and serum at diagnosis were collected. Measured analytes included calcium, inorganic phosphate, alkaline phosphatase, albumin, transferrin, ceruloplasmin, prealbumin, C3 and C4 complement, ferritin, and vitamin D. Groups were compared by phenotype (classical AN vs. atypical anorexia nervosa [AAN]) and by severity of starvation (body mass index z-score: severe Z ≤ -2.0 vs. mild-moderate Z > -2.0) using the Mann-Whitney test. Receiver operating characteristic (ROC) analysis assessed discriminatory performance. Moreover, sensitivity, specificity, positive predictive value, and negative predictive value were calculated.\nMedian age was 15 years, 63 participants were female. Median symptom duration was 6 months and median weight loss 19.8% (z-score -2.03 ± 1.40). Compared with classical AN, AAN patients had higher transferrin and C3 (p = 0.019 and p = 0.009). Severe malnutrition (Z ≤ -2.0) was associated with higher ferritin (p = 0.013) and lower transferrin, ceruloplasmin, and C3 (p = 0.004, p = 0.004, and p < 0.001). ROC area under the curves were: C3 0.75 (95% confidence interval 0.63-0.87), transferrin 0.71, ceruloplasmin 0.70, and ferritin 0.68. Specificity was high (71%-97%) and negative predictive values excellent (98%-99%).\nTransferrin, ceruloplasmin, complement C3 and ferritin reflect complementary aspects of starvation in pediatric AN. Complement C3 showed the best discriminatory performance for severe malnutrition. Prealbumin did not correlate with phenotype or severity. These markers could help in early identification and monitoring of severe malnutrition.",
+    "journal": "Journal of pediatric gastroenterology and nutrition",
+    "pub_date": "2026",
+    "doi": "10.1093/ajcn/64.6.952",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42179331/",
+    "summary_ja": "・背景：小児神経性やせ症（AN）における飢餓状態の検出・モニタリングに有用な信頼性の高い生化学マーカーが求められている。\n・方法：AN患者65例を対象に前向きコホート研究を実施し、診断時の血清中カルシウム、リン、ALP、アルブミン、トランスフェリン、セルロプラスミン、プレアルブミン、C3・C4補体、フェリチン、ビタミンDを測定し、表現型・重症度別に比較、ROC解析を行った。\n・結果：非定型AN群は古典的AN群よりトランスフェリン・C3が高値、重症低栄養群（Z≤-2.0）はフェリチン高値、トランスフェリン・セルロプラスミン・C3低値を示し、C3のROC AUCが0.75と最良の判別能を示した。特異度・陰性的中率は高値であった。プレアルブミンは表現型・重症度と無相関であった。\n・臨床的示唆：トランスフェリン、セルロプラスミン、C3、フェリチンは飢餓の異なる側面を反映し、特にC3は重症低栄養の早期同定・モニタリングに有用な可能性がある。"
+  },
+  "42179325": {
+    "pmid": "42179325",
+    "title": "Real-world treatment of pediatric Hepatitis C: A Florida experience.",
+    "abstract": "",
+    "journal": "Journal of pediatric gastroenterology and nutrition",
+    "pub_date": "2026",
+    "doi": "10.1002/hep.22094",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42179325/",
+    "summary_ja": null
+  },
+  "42165317": {
+    "pmid": "42165317",
+    "title": "Efficacy and safety of post-Kasai steroid-based protocol in biliary atresia.",
+    "abstract": "This study aims to assess whether steroid-based regimen enhances the clearance of jaundice and improves native liver survival (NLS).\nWe included all infants with biliary atresia (BA) undergoing Kasai portoenterostomy (KPE) at our centre. The algorithm-initiated prednisolone was initiated if stools remained acholic.\nOf 127 infants, 70 formed the steroid group (SG) and 57 the historical cohort (HC). Jaundice clearance at 6 months was superior with steroids (61.4% vs. 38.6%; odds ratio [OR] 2.53, 95% confidence interval [CI] 1.23-5.19, p = 0.013). Kaplan-Meier analysis demonstrated improved 24-month NLS (log-rank p = 0.044) in SG. Multivariate analysis identified younger age at KPE (adjusted odds ratio [aOR] 1.021 per day, 95% CI 1.004-1.038, p = 0.016), lower pre-operative bilirubin (aOR 1.163, 95% CI 1.024-1.320, p = 0.020) and steroid use (aOR 2.13, 95% CI 1.001-4.53, p = 0.050) as independent predictors of success.\nModerate-dose prednisolone after KPE enhances early bile drainage and prolongs native liver survival. Optimal benefit is achieved when surgery is performed at ≤70 days of age.\nClinicalTrials.gov identifier: NCT06447051 (Clinicaltrials.gov) https://clinicaltrials.gov/study/NCT06447051.",
+    "journal": "Journal of pediatric gastroenterology and nutrition",
+    "pub_date": "2026",
+    "doi": "10.1016/j.sempedsurg.2025.151471",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42165317/",
+    "summary_ja": "- 背景: 胆道閉鎖症術後のステロイド投与が黄疸消退・自己肝生存に有効かは不明である。\n- 方法: Kasai術施行例127名（ステロイド群70名、既往対照群57名）で無胆汁便持続時に術後プレドニゾロン投与し比較検討した。\n- 結果: 6ヵ月時黄疸消退率はステロイド群で有意に高く（61.4%対38.6%）、24ヵ月自己肝生存も改善、若年齢での手術・低ビリルビン値・ステロイド使用が独立予測因子であった。\n- 臨床的示唆: Kasai術後の中等量プレドニゾロンは早期胆汁排泄を促進し自己肝生存を延長させ、生後70日以内の手術で効果が最大化する可能性がある。"
+  },
+  "42165309": {
+    "pmid": "42165309",
+    "title": "Identifying patient-centered outcomes in progressive familial intrahepatic cholestasis: Results from IMPACT.",
+    "abstract": "In rare diseases like progressive familial intrahepatic cholestasis (PFIC), lack of evidence results in treatment variability and strategies for families to engage care teams to understand how variability affects overall health are unknown. Patient-centered comparative effectiveness research (CER) has been identified as an approach to address these challenges, but CER-specific knowledge and infrastructure are lacking. We present the results from IMPACT (Identifying research targets by Merging Patient And Clinician Treatment information), a 2-year capacity-building project for patient-centered CER.\nSix learning modules were adapted from the Patient-Centered Outcomes Research Institute to teach participants about CER and elicit feedback for patient-specific CER priorities and processes in PFIC. Participants completed modules and engaged in focus groups (12 virtual and in-person focus groups). Engagement quality was assessed using a validated patient engagement evaluation tool.\nParticipation in learning modules varied between 16 and 31 patient/family participants (mean 22), and 5 and 8 clinicians/researchers (mean 5.3). Focus group participation varied between 7 and 35 patient/family participants (mean 13.1) and 3-35 clinicians/researchers (mean 7.3). Collated data enabled develop of (1) the treatment experience app (TEA): a web-based, community-built information tool to display relevant, research-based, lay language therapeutic approaches, augmented by patient experience information and (2) the IMPACT roadmap, a manual for future PFIC patient-centered research. Engagement assessments demonstrate consistently strong and steadily improving levels of engagement.\nIMPACT successfully engaged key stakeholders to build shared understanding of patient-centered CER, define PFIC-specific CER targets, and develop strategies for equitable and sustainable patient-researcher partnerships.",
+    "journal": "Journal of pediatric gastroenterology and nutrition",
+    "pub_date": "2026",
+    "doi": "10.1016/j.jclinepi.2021.11.034",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42165309/",
+    "summary_ja": "- 背景:PFICでは治療の多様性に関するエビデンスが不足し、患者中心の比較効果研究(CER)の知識・基盤整備が課題。\n- 方法:PCORI由来の6学習モジュールとフォーカスグループ(12回)を用い、患者・家族・臨床医が参加してCER優先事項を検討、患者エンゲージメントを評価。\n- 結果:患者・家族16-31名、臨床医5-8名が参加。治療体験アプリ(TEA)とIMPACTロードマップを作成し、エンゲージメント評価は良好かつ改善傾向。\n- 臨床的示唆:PFICにおける患者中心CERの推進基盤が構築され、今後の患者-研究者協働研究の指針となる。"
+  },
+  "42159193": {
+    "pmid": "42159193",
+    "title": "European Society for Paediatric Gastroenterology, Hepatology and Nutrition/North American Society for Pediatric Gastroenterology, Hepatology and Nutrition guidelines for treatment of functional constipation in children aged 0-18 years.",
+    "abstract": "Functional constipation (FC) is common in childhood, significantly impacting quality of life. Since the 2014 international guideline, new evidence has been published, and methods on making guidelines have developed. This treatment guideline for FC in children aged 0-18 years is a collaborative effort of the European and North American Societies for Paediatric Gastroenterology, Hepatology and Nutrition (ESPGHAN and NASPGHAN). The aim was to deliver evidence-based recommendations applicable across all treatment settings worldwide and offer methodological guidance for future research.\nThe guideline development followed the \"Grading of Recommendations Assessment, Development and Evaluation\" (GRADE) approach. The Guideline Development Group (GDG) comprised clinical experts, representing ESPGHAN, NASPGHAN and Cochrane. Prospectively agreed-upon treatments were formatted into \"patient, intervention, comparison, outcome\" questions. The GDG also determined decision thresholds for efficacy and safety outcomes through a Delphi process to support grading of the literature. Final recommendations were established by consensus voting, and a treatment algorithm was developed.\nA total of 102 original randomized controlled trials (RCTs) assessing treatment of FC in children aged 0-18 years were identified. Consensus was reached for 11 GRADE recommendations. Nineteen good practice statements were formulated, and guidance for future research methodology was proposed.\nThis guideline is the result of a collaborative effort between ESPGHAN and NASPGHAN on treatment options for FC. Systematic review of the evidence has revealed major evidence gaps for commonly used treatments for FC and highlights the need for large pediatric RCTs, particularly on treatment options with no evidence or only very low certainty evidence.",
+    "journal": "Journal of pediatric gastroenterology and nutrition",
+    "pub_date": "2026",
+    "doi": "10.1002/jpn3.70447",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42159193/",
+    "summary_ja": "・背景: 小児機能性便秘（FC）はQOLに大きく影響し、2014年の国際ガイドライン以降新たな知見が蓄積、方法論も発展した。\n\n・方法: ESPGHANとNASPGHANが共同でGRADE手法に基づきガイドラインを作成し、PICO質問、Delphi法による閾値決定、コンセンサス投票で推奨を策定した。\n\n・結果: 102件のRCTを精査し、11のGRADE推奨と19の推奨実践声明を策定、治療アルゴリズムを開発した。\n\n・臨床的示唆: 多くの治療選択肢でエビデンスが不足しており、特に低確実性・無エビデンス領域について今後大規模小児RCTが必要である。"
+  },
+  "42080306": {
+    "pmid": "42080306",
+    "title": "The rumination severity index: Development and evaluation of a scoring tool for rumination syndrome.",
+    "abstract": "Rumination syndrome (RS) is increasingly recognized in pediatrics; however, no tool exists to measure RS severity in children. Thus, the rumination severity index (RumSI) was developed and validated to measure rumination severity in children.\nWe developed a seven-item patient-reported questionnaire, the RumSI, to evaluate RS symptoms and impact on functioning based on clinical experience of pediatric gastroenterologists and psychologists who specialize in caring for children with RS. Patients with RS evaluated at our institution or their parents/caregivers were asked to complete the RumSI and the Pediatric Quality of Life Inventory (PedsQL) as part of clinical care. An overall RumSI score was calculated and analyzed for correlation with PedsQL. Intrarater and test-retest reliability were assessed in a validation cohort.\nAmong 105 children with RS, 66 completed RumSI and PedsQL questionnaires (71% female, median age of 15 years, interquartile range 13-17) for a 63% completion rate. RumSI scores ranged from 0 to 26.5 (mean 10.6 ± 7.2) out of a total possible 28, with higher scores indicating worse rumination symptoms. RumSI and PedsQL scores were significantly negatively correlated (r = -0.45, p < 0.001), with every 1-point increase in RumSI score associated with a 1.3-point decrease in PedsQL total score. Test-retest reliability was strong (intraclass correlation coefficient = 0.84).\nThe newly developed RumSI is the first validated tool designed to measure RS severity in children. RumSI scores negatively correlate well with a widely used pediatric quality of life measure and demonstrate strong test-retest reliability, supporting its use in both clinical care and research.",
+    "journal": "Journal of pediatric gastroenterology and nutrition",
+    "pub_date": "2026",
+    "doi": "10.1093/dote/doae009",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42080306/",
+    "summary_ja": "- 背景：小児の反芻症候群(RS)は認知が高まっているが、重症度評価ツールが存在しない。\n- 方法：7項目の患者報告式質問票RumSIを開発し、RS患児にRumSIとPedsQLを実施、相関と再現性を検証。\n- 結果：66例で解析、RumSIとPedsQLは有意な負の相関(r=-0.45)、再検査信頼性は良好(ICC=0.84)。\n- 臨床的示唆：RumSIは小児RS重症度評価の初の妥当性検証済みツールであり、臨床・研究での活用が期待される。"
+  },
+  "42080300": {
+    "pmid": "42080300",
+    "title": "Decision aid reduces caregivers' preference for acid-suppressive medication in infants with symptoms suggestive of reflux.",
+    "abstract": "Caregivers of infants with symptoms suggestive of gastroesophageal reflux (GER), such as regurgitation and excessive crying, often feel uncertain and seek treatment, though it is usually unnecessary. This study evaluated the effect of a decision aid on reducing caregivers' preference for acid suppressive medication for infants referred because of potential GER symptoms and its effect on their decision certainty.\nInfants (<18 months) referred to pediatric outpatient clinics with symptoms suggestive of GER were included. The decision aid provided information on gastroesophageal reflux disease (GERD) and three treatment options: lifestyle advice, thickened feeding, and acid-suppressive medication. Caregivers completed questionnaires assessing treatment preference and decision certainty before (T1a) and after using the decision aid (T1b), and after the outpatient visit (T2). Decision certainty was assessed using the Decisional Conflict Scale (DCS).\nA total of 110 infants were included (median age 4 months [interquartile range 2-6]; 48% female; 78% general hospital). Pre-visit questionnaires (T1a, T1b) were completed by 79 caregivers (72%) and 53 (48%) also completed T2. Preference for acid-suppressive medication decreased from 46/79 (58%) at T1a to 34/79 (43%) at T1b (p < 0.05), and to 6/53 (11%) at T2 (p < 0.001). Mean DCS-score (scale 0-100) decreased from 47.2 (standard deviation [SD] 16.1) at T1a to 34.4 (SD 17.4) at T1b, and to 19.0 (SD 12.3) post-visit (p < 0.001), indicating improved decision certainty.\nThe decision aid reduced caregivers' preference for acid-suppressive treatment in infants with symptoms suggestive of GER and increased decision certainty. This supports the potential role of a decision aid in promoting appropriate care.",
+    "journal": "Journal of pediatric gastroenterology and nutrition",
+    "pub_date": "2026",
+    "doi": "10.22037/ijpr.2021.115446.15370",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42080300/",
+    "summary_ja": "・背景: GER様症状(逆流・過度の啼泣)を有する乳児の養育者は不安を感じ、しばしば不要な酸抑制薬治療を希望する。\n\n・方法: 18ヵ月未満の乳児110例を対象に、GERDと3治療選択肢(生活指導・増粘栄養・酸抑制薬)を説明する意思決定支援ツールを用い、受診前後・受診後の治療選好とDecisional Conflict Scale(DCS)を評価。\n\n・結果: 酸抑制薬への選好は受診前58%から支援ツール使用後43%、受診後11%へ有意に減少し、DCSスコアも47.2→34.4→19.0と有意に改善した。\n\n・臨床的示唆: 意思決定支援ツールはGER様症状児における養育者の酸抑制薬選好を減少させ、意思決定の確信度を高めることで、適切な医療提供を促進する可能性がある。"
+  },
+  "42057762": {
+    "pmid": "42057762",
+    "title": "The incidence and prevalence of paediatric inflammatory bowel disease in Scotland: A nationwide study from 2015 to 2018.",
+    "abstract": "Scotland is known to have the highest incidence of paediatric-onset inflammatory bowel disease (PIBD) in the United Kingdom and one of the highest worldwide; however, data on prevalence is lacking. We aimed to calculate the PIBD incidence and prevalence rates in Scotland during 2015 to 2018.\nIncident and prevalent cases of PIBD were prospectively recorded by the three Scottish regional paediatric gastroenterology networks covering all paediatric units nationwide. PIBD was defined as children <16 years of age with Crohn's disease, ulcerative colitis or inflammatory bowel disease type unclassified. The incidence rate for the period from 2015 to 2018, the point prevalence (30th June each year) and the period prevalence (calendar year) were each calculated using publicly accessible Scottish population data.\nIn total, 438 patients were diagnosed with PIBD in Scotland over the 4-year study period, providing an overall incidence rate of 12.0/100,000 person-years. The number of prevalent patients per year ranged from 518 to 538, with the highest period prevalence 58.5/100,000 person-years (01 January 2016-31 December 2016) and the highest point prevalence 45.9/100,000 persons (30 June 17). One hundred and fifty-nine patients ≥16 years of age remained within paediatric services in 2017; differences in transition practices were observed across regions.\nThe Scottish PIBD incidence and prevalence remain the highest reported in nationwide studies worldwide (aged < 16 years). The high prevalence is in keeping with the high incidence rate and minimal mortality rate, so continues to rise. The true caseload within paediatric services, including patients ≥16 years of age, may be up to 30% higher.",
+    "journal": "Journal of pediatric gastroenterology and nutrition",
+    "pub_date": "2026",
+    "doi": "10.1002/jpn3.70450",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42057762/",
+    "summary_ja": "・背景: スコットランドは英国内および世界的にも小児発症炎症性腸疾患(PIBD)の罹患率が最高水準だが、有病率データが乏しい。\n\n・方法: 2015〜2018年に全国3地域の小児消化器ネットワークが16歳未満のPIBD新規・既存患者を前方視的に登録し、罹患率と点・期間有病率を算出。\n\n・結果: 4年間で438例が新規診断され、罹患率12.0/10万人年。期間有病率最大58.5/10万人年、点有病率最大45.9/10万人。2017年時点で16歳以上の移行未実施例が159例存在。\n\n・臨床的示唆: スコットランドのPIBD罹患率・有病率は世界最高水準であり、移行期患者を含めると実際の小児医療需要は最大30%高い可能性があり、医療体制整備が必要。"
+  },
+  "41850540": {
+    "pmid": "41850540",
+    "title": "Intestinal Ultrasound Scan in Acute Severe Ulcerative Colitis in Children: A Multicenter Prospective Study on Behalf of the Porto Inflammatory Bowel Disease Working Group of European Society for Paediatric Gastroenterology Hepatology and Nutrition.",
+    "abstract": "The aim of this study was to evaluate the potential role of intestinal ultrasound scan (IUS) in predicting short-term treatment outcomes in pediatric acute severe ulcerative colitis (ASUC).\nThis prospective longitudinal study was conducted across 10 European centers. Biologic-naïve children with ASUC were included. Each patient underwent 2 IUS, the first within 48 hours of initiating intravenous corticosteroids, and the second between day 5 and 7 of treatment. Key metrics assessed included colonic wall thickness (CWT), colonic wall stratification (CWS), and colonic wall blood flow via power Doppler. The Milan ultrasound score was also calculated for each colonic quadrant.\nThe study prospectively enrolled 60 patients (61.7% girls; median age at enrollment, 13.5 years). Escalation to infliximab was required in 39 patients (65%) who were corticosteroid nonresponders. Nonresponders had significantly higher CWT assessed in the left-lower quadrant (LLQ) (6 vs 4.2 mm, P < .001) and left upper quadrant (5 vs 4 mm, P = .003) and had more frequent hypervascularity (Limberg's score ≥3) assessed in the same sections. Receiver operator characteristic curve analysis identified LLQ CWT >5 mm (area under the curve [AUC] = 0.819) and Milan Ultrasound Criteria >7.8 (AUC = 0.834) as optimal cutoffs for predicting steroid resistance. Ten patients (16.7%) who did not respond to medical therapy underwent colectomy within the 8-week period of the study. At the second IUS, CWT >4.8 mm and Milan Ultrasound Criteria >8.7 in LLQ were associated with medical therapy failure (AUC = 0.844 and 0.878, respectively). Patients in steroid-free clinical remission at week 8 had lower CWT (3.5 vs 5 mm, P = .037) and Milan Ultrasound Criteria (5.3 vs 8.7, P < .001) at the second IUS.\nIUS is an effective noninvasive tool to predict first-line therapy failure and the need for colectomy in patients with ASUC.",
+    "journal": "Gastroenterology",
+    "pub_date": "2026",
+    "doi": "10.1053/j.gastro.2026.02.034",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41850540/",
+    "summary_ja": "・背景: 小児急性重症潰瘍性大腸炎（ASUC）における治療反応予測に腸管超音波検査（IUS）が有用かを検討する必要がある。\n\n・方法: 欧州10施設で生物学的製剤未使用のASUC患児60例を前向きに登録し、ステロイド開始48時間以内と day 5-7にIUSを施行、腸管壁厚（CWT）・層構造・血流・Milanスコアを評価した。\n\n・結果: ステロイド無反応群（65%）はLLQ・左上腹部のCWTが有意に高く血流も亢進、LLQ CWT>5mmとMilanスコア>7.8がステロイド抵抗性予測に有用（AUC 0.819、0.834）。2回目IUSでのCWT>4.8mm等は薬物治療失敗と関連（AUC 0.844-0.878）。\n\n・臨床的示唆: IUSはASUCにおける第一選択治療の失敗や大腸切除の必要性を予測する有効な非侵襲的モニタリング手法となりうる。"
+  },
+  "41800648": {
+    "pmid": "41800648",
+    "title": "Contemporary outcomes of isolated liver and combined liver-lung transplantation for cystic fibrosis in children.",
+    "abstract": "To compare isolated liver transplantation (LT) for cystic fibrosis (CF) versus other indications and versus combined liver-lung transplantation (CLLT) for CF in children and identify factors associated with survival.\nWe compared clinical and survival data after first isolated LT for CF versus other indications and versus CLLT for CF in children (<18 years) using United Network for Organ Sharing data (02/2002-12/2024).\nA total of 157 pediatric CF transplant recipients were included (LT: 145; CLLT: 12). Isolated CF LT recipients had higher total bilirubin (TB) than CLLT (median 1.6 vs. 0.7 mg/dL, p = 0.02). A higher proportion of CF transplant recipients with high TB levels (≥1.5 mg/dL) had ascites, encephalopathy, and required life support compared to those with low TB levels (<1.5 mg/dL). CF LT demonstrated superior patient survival versus CF CLLT (log-rank test, p = 0.02; 5-year: 89.1% vs. 72.2%), but inferior versus non-CF LT (log-rank test, p < 0.001; 5-year: 91.5%). Multivariable Cox regression showed increased risk of patient mortality and liver graft loss in CF CLLT recipients compared to isolated CF LT recipients (hazard ratio [HR] = 2.92, 95% confidence interval [95% CI]: 1.20-7.07, p = 0.02 and HR = 2.56, 95% CI: 1.09-5.98, p = 0.03, respectively) and recipients with higher TB levels (HR = 1.05, 95% CI: 1.01-1.10, p = 0.008 and HR = 1.05, 95% CI: 1.01-1.09, p = 0.008, respectively), when adjusting for recipient age, albumin and international normalized ratio (INR) at time of LT, ICU status, and liver graft type. Multivariable Cox regression of isolated LT recipients showed increased risk of patient mortality (HR = 2.03, 95% CI: 1.41-2.93, p < 0.001) and liver graft loss (HR = 1.54, 95% CI: 1.13-2.11, p = 0.006) for CF compared to non-CF etiologies, when adjusting for recipient age, albumin, INR, and TB at time of LT, ICU status, and liver graft type.\nIsolated LT for CF was associated with superior survival compared to CLLT for CF, but inferior survival compared to LT for non-CF indications. Higher TB in CF may be a marker of inferior outcomes post-LT.",
+    "journal": "Journal of pediatric gastroenterology and nutrition",
+    "pub_date": "2026",
+    "doi": "10.1002/jpn3.70392",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41800648/",
+    "summary_ja": "・背景:小児CFにおける単独肝移植(LT)と肝肺同時移植(CLLT)の予後比較、および生存関連因子の検討は十分でない。\n\n・方法:UNOSデータ(2002-2024)を用い、小児CF患者のLT(145例)とCLLT(12例)、および非CF小児LTとの臨床・生存データを比較。\n\n・結果:CF-LTはCLLTより生存良好(5年生存89.1%vs72.2%)だが、非CF-LTより不良(91.5%)。CLLT・高TB値は死亡・グラフト喪失のリスク増大と関連。\n\n・臨床的示唆:CFにおける単独LTはCLLTより予後良好であり、移植前の総ビリルビン値上昇は予後不良の指標となり得る。"
+  },
+  "41610933": {
+    "pmid": "41610933",
+    "title": "Peppermint Oil and Sweets in Pediatric Irritable Bowel Syndrome and Functional Abdominal Pain: A Randomized Trial.",
+    "abstract": "Effective pharmacologic treatment for pediatric irritable bowel syndrome (IBS) and functional abdominal pain-not otherwise specified (FAP-NOS) is lacking. This study evaluated the efficacy and safety of peppermint oil, an antispasmodic agent, and peppermint sweets in children with IBS or FAP-NOS.\nThis randomized controlled trial was conducted across 13 Dutch hospitals. Participants (aged 8-18 years) with IBS or FAP-NOS were randomized (1:1:1) to double-blind peppermint oil capsules (containing 182 mg of peppermint oil), open-label peppermint sweets (9.2 mg peppermint oil), or double-blind placebo (2.0 mg peppermint oil to enhance blinding) twice daily (8-11 years) or 3 times daily (12-18 years), with dose escalation if needed. The intervention lasted 8 weeks with a 4-week follow-up. The primary endpoint was treatment success, defined as a ≥30% reduction of abdominal pain intensity after 8 weeks. The key secondary endpoint was adequate relief of symptoms.\nIn 228 children (8-11 years: n = 92; 12-18 years: n = 135; 75-78 per group), treatment success was comparable between patients receiving peppermint oil (n = 30; 44.0%) and placebo (n = 28; 37.3%) (odds ratio [OR], 1.33; 97.5% confidence interval [CI], 0.58-3.09; P = .44), and between placebo and peppermint sweets (n = 30; 38.7%) (OR, 1.05; 97.5% CI, 0.45-2.44; P = .91). Adequate relief was comparable between treatment groups: peppermint oil (n = 40; 53.3%) vs placebo (n = 37; 49.3%) (OR, 1.15; 97.5% CI, 0.54-2.47; P = .68), and placebo vs peppermint sweets (n = 35; 44.9%) (OR, 0.81; 97.5% CI, 0.39-1.71; P = .53). Adverse events were mild and infrequent.\nNeither peppermint oil nor peppermint sweets were superior to placebo in treating pediatric IBS and FAP-NOS. These findings suggest prioritizing proven gut-brain axis-targeted interventions for this population.\ngov, Number: NCT05799053.",
+    "journal": "Clinical gastroenterology and hepatology : the official clinical practice journal of the American Gastroenterological Association",
+    "pub_date": "2026",
+    "doi": "10.1016/j.cgh.2026.01.014",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41610933/",
+    "summary_ja": "- 背景:小児IBS/FAP-NOSに有効な薬物治療は確立されておらず、抗痙攣薬ペパーミントオイルの有効性・安全性を検討した。\n- 方法:オランダ13施設でのRCT。8-18歳のIBS/FAP-NOS患児をペパーミントオイルカプセル、ペパーミント飴、プラセボに1:1:1割付し8週間投与、腹痛強度30%以上減少を主要評価項目とした。\n- 結果:治療成功率はペパーミントオイル44.0%、プラセボ37.3%、飴38.7%で群間差なし。症状改善についても有意差なし。有害事象は軽微かつ稀。\n- 臨床的示唆:ペパーミントオイル・飴はプラセボに優越せず、腸脳相関を標的とした他の実証的介入を優先すべきである。"
+  },
+  "40921374": {
+    "pmid": "40921374",
+    "title": "Assessing for Disparities in Diagnostic Delay Among Patients With Eosinophilic Esophagitis.",
+    "abstract": "Eosinophilic esophagitis (EoE) is a chronic, inflammatory disease defined by esophageal symptoms and eosinophilic infiltration.1 The diagnostic delay in EoE is a risk factor for progression to fibrostenosis.2 A more detailed understanding of this diagnostic delay would inform efforts to address it.3 If certain patient populations are disproportionately impacted by a prolonged time from symptoms to diagnosis, targeted efforts could mitigate delay and prevent disease progression. However, whether there are diagnostic disparities in the United States remains unknown.4 We aimed to determine whether there are disparities in diagnostic delay for EoE by age, race, or other patient characteristics.",
+    "journal": "Clinical gastroenterology and hepatology : the official clinical practice journal of the American Gastroenterological Association",
+    "pub_date": "2026",
+    "doi": "10.1016/j.cgh.2025.08.032",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/40921374/",
+    "summary_ja": "- 背景:EoEでは診断遅延が線維狭窄化進行の危険因子であり、米国における診断遅延の患者背景による差異は不明であった。\n- 方法:年齢、人種、その他の患者特性による診断遅延の差異を検討した。\n- 結果:抄録に具体的な結果の記載なし。\n- 臨床的示唆:診断遅延に格差がある集団を特定できれば、targeted介入により遅延軽減と疾患進行予防が可能となる。"
+  },
+  "40782947": {
+    "pmid": "40782947",
+    "title": "Advancing Proactive Therapeutic Drug Monitoring With Model-Informed Precision Dosing in Pediatric Crohn's Disease.",
+    "abstract": "",
+    "journal": "Clinical gastroenterology and hepatology : the official clinical practice journal of the American Gastroenterological Association",
+    "pub_date": "2026",
+    "doi": "10.1016/j.cgh.2025.06.046",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/40782947/",
+    "summary_ja": null
+  }
+}
