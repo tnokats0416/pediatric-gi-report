@@ -1,6 +1,10 @@
 #!/usr/bin/env python3
 """
-data/papers.json のうち summary_ja が未生成のレコードに、Claude APIで日本語要約を付与する。
+data/papers.json のうち summary_ja / title_ja が未生成のレコードに、Claude APIで日本語化を付与する。
+
+- abstractがあり summary_ja が未生成の記事: タイトル訳 + 4項目要約を1回のリクエストで生成
+- 上記以外でtitle_jaが未生成の記事（abstractがない記事、または要約済みでタイトル訳のみ未生成の記事）:
+  タイトル訳のみを軽量なリクエストで生成（既存の要約文はそのまま保持し、再生成コストをかけない）
 
 環境変数 ANTHROPIC_API_KEY が必要（未設定ならエラーで終了）。
 """
@@ -22,11 +26,19 @@ PAPERS_PATH = DATA_DIR / "papers.json"
 REQUEST_INTERVAL_SEC = 0.5
 
 SYSTEM_PROMPT = (
-    "あなたは小児消化器領域を専門とする医師向けに、英語の医学論文抄録を日本語で要約するアシスタントです。"
+    "あなたは小児消化器領域を専門とする医師向けに、英語の医学論文タイトル・抄録を日本語化するアシスタントです。"
     "読者は医療者なので専門用語はそのまま使ってよく、平易化は不要です。"
-    "出力は以下の4項目を簡潔な箇条書きで示してください（各1〜2文、合計200字程度まで）。\n"
+    "以下の形式で出力してください（前置きや結びの文、装飾記号は不要）。\n"
+    "1行目: 論文タイトルの日本語訳のみ\n"
+    "2行目以降: 次の4項目を簡潔な箇条書きで（各1〜2文、合計200字程度まで）\n"
     "・背景\n・方法\n・結果\n・臨床的示唆\n"
-    "推測や原文にない情報は追加しないでください。前置きや結びの文は不要で、箇条書きのみを出力してください。"
+    "推測や原文にない情報は追加しないでください。"
+)
+
+TITLE_SYSTEM_PROMPT = (
+    "あなたは医学論文のタイトルを日本語に翻訳するアシスタントです。"
+    "読者は医療者なので専門用語はそのまま使ってよく、平易化は不要です。"
+    "日本語訳のタイトルのみを1行で出力してください（前置き・引用符・記号は不要）。"
 )
 
 
@@ -37,7 +49,20 @@ def build_user_prompt(article: dict) -> str:
     )
 
 
-def call_claude(article: dict) -> str:
+def build_title_prompt(article: dict) -> str:
+    return f"タイトル: {article['title']}"
+
+
+def parse_combined_response(text: str) -> tuple[str, str]:
+    lines = [l for l in text.strip().split("\n") if l.strip()]
+    if not lines:
+        return "", ""
+    title_ja = lines[0].strip()
+    summary_ja = "\n".join(lines[1:]).strip()
+    return title_ja, summary_ja
+
+
+def call_claude(system_prompt: str, user_prompt: str, max_tokens: int) -> str:
     api_key = os.environ.get("ANTHROPIC_API_KEY")
     if not api_key:
         print("エラー: 環境変数 ANTHROPIC_API_KEY が未設定です", file=sys.stderr)
@@ -45,10 +70,10 @@ def call_claude(article: dict) -> str:
 
     payload = {
         "model": MODEL,
-        "max_tokens": 500,
-        "system": SYSTEM_PROMPT,
+        "max_tokens": max_tokens,
+        "system": system_prompt,
         "messages": [
-            {"role": "user", "content": build_user_prompt(article)}
+            {"role": "user", "content": user_prompt}
         ],
     }
     req = urllib.request.Request(
@@ -82,25 +107,48 @@ def save_papers(papers: dict) -> None:
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--limit", type=int, default=None, help="要約する件数の上限（動作確認用）")
+    parser.add_argument("--limit", type=int, default=None, help="処理する件数の上限（動作確認用）")
     args = parser.parse_args()
 
     papers = load_papers()
-    targets = [p for p in papers.values() if not p.get("summary_ja") and p.get("abstract")]
-    if args.limit is not None:
-        targets = targets[: args.limit]
 
-    print(f"要約対象: {len(targets)}件", file=sys.stderr)
+    work: list[tuple[str, dict]] = []
+    for article in papers.values():
+        if article.get("abstract") and not article.get("summary_ja"):
+            # abstractがあり要約未生成 → タイトル訳+要約をまとめて生成
+            work.append(("full", article))
+        elif not article.get("title_ja"):
+            # abstractがない（要約対象外）、または要約済みでタイトル訳のみ未生成
+            work.append(("title_only", article))
+
+    if args.limit is not None:
+        work = work[: args.limit]
+
+    full_count = sum(1 for kind, _ in work if kind == "full")
+    title_only_count = sum(1 for kind, _ in work if kind == "title_only")
+    print(
+        f"処理対象: {full_count}件（新規タイトル訳+要約）, {title_only_count}件（タイトル訳のみ）",
+        file=sys.stderr,
+    )
 
     done = 0
-    for article in targets:
+    for kind, article in work:
         try:
-            summary = call_claude(article)
+            if kind == "full":
+                text = call_claude(SYSTEM_PROMPT, build_user_prompt(article), 500)
+                title_ja, summary_ja = parse_combined_response(text)
+                if title_ja:
+                    article["title_ja"] = title_ja
+                if summary_ja:
+                    article["summary_ja"] = summary_ja
+            else:
+                title_ja = call_claude(TITLE_SYSTEM_PROMPT, build_title_prompt(article), 100).strip()
+                if title_ja:
+                    article["title_ja"] = title_ja
         except Exception as e:  # noqa: BLE001 - バッチ処理なので1件の失敗で全体を止めない
-            print(f"警告: PMID {article['pmid']} の要約に失敗: {e}", file=sys.stderr)
+            print(f"警告: PMID {article['pmid']} の処理に失敗: {e}", file=sys.stderr)
             continue
 
-        papers[article["pmid"]]["summary_ja"] = summary.strip()
         done += 1
 
         # 数件ごとに保存し、途中失敗しても進捗を失わないようにする
@@ -109,7 +157,7 @@ def main() -> None:
         time.sleep(REQUEST_INTERVAL_SEC)
 
     save_papers(papers)
-    print(f"完了: {done}/{len(targets)}件を要約しました", file=sys.stderr)
+    print(f"完了: {done}/{len(work)}件を処理しました", file=sys.stderr)
 
 
 if __name__ == "__main__":

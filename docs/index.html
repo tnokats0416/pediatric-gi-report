@@ -12,6 +12,10 @@
     --muted: #6b6b6b;
     --border: #e3e3e3;
     --accent: #0a6b5c;
+    --sec-background: #2b6cb0;
+    --sec-method: #6b46c1;
+    --sec-result: #b7791f;
+    --sec-implication: #0a6b5c;
   }
   @media (prefers-color-scheme: dark) {
     :root {
@@ -20,6 +24,10 @@
       --muted: #9a9a9a;
       --border: #2c3234;
       --accent: #4fd1b8;
+      --sec-background: #63b3ed;
+      --sec-method: #b794f4;
+      --sec-result: #f6ad55;
+      --sec-implication: #4fd1b8;
     }
   }
   body {
@@ -42,13 +50,79 @@
     padding: 0.75rem 1rem;
     margin-top: 1rem;
   }
+  .toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.6rem;
+    margin-top: 1rem;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.8rem;
+    font-family: inherit;
+    color: var(--fg);
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 0.35rem 0.8rem;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  .btn:hover { border-color: var(--accent); color: var(--accent); }
+  .btn[aria-pressed="true"] {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--bg);
+  }
+  .bookmark-count-label { font-size: 0.78rem; color: var(--muted); }
   article {
     border-bottom: 1px solid var(--border);
     padding: 1.25rem 0;
+    position: relative;
   }
   article h2 {
     font-size: 1.05rem;
     margin: 0 0 0.4rem;
+    padding-right: 2.2rem;
+  }
+  .new-badge {
+    display: inline-block;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    color: #fff;
+    background: #e53e3e;
+    border-radius: 4px;
+    padding: 0.1rem 0.4rem;
+    margin-right: 0.4rem;
+    vertical-align: middle;
+  }
+  .bookmark-btn {
+    position: absolute;
+    top: 1.25rem;
+    right: 0;
+    font-size: 1.3rem;
+    line-height: 1;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--muted);
+    padding: 0.1rem 0.3rem;
+  }
+  .bookmark-btn[aria-pressed="true"] { color: #d69e2e; }
+  #bookmark-empty {
+    display: none;
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+  .title-en {
+    font-size: 0.8rem;
+    font-style: italic;
+    color: var(--muted);
+    margin: -0.15rem 0 0.5rem;
   }
   .meta {
     font-size: 0.8rem;
@@ -58,6 +132,45 @@
   .summary {
     white-space: pre-line;
     font-size: 0.95rem;
+  }
+  .abstract-image {
+    width: 100%;
+    max-height: 420px;
+    object-fit: contain;
+    background: var(--border);
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    display: block;
+    margin-bottom: 0.6rem;
+  }
+  .abstract-image-caption {
+    font-size: 0.72rem;
+    color: var(--muted);
+    margin: -0.4rem 0 0.6rem;
+  }
+  .abstract-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.7rem 1rem;
+  }
+  @media (max-width: 480px) {
+    .abstract-card { grid-template-columns: 1fr; }
+  }
+  .abstract-card .section {
+    border-left: 3px solid var(--section-color, var(--accent));
+    padding: 0.1rem 0 0.1rem 0.6rem;
+  }
+  .abstract-card .section .label {
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--section-color, var(--accent));
+    margin-bottom: 0.15rem;
+  }
+  .abstract-card .section .text {
+    font-size: 0.88rem;
+    line-height: 1.55;
   }
   a { color: var(--accent); }
   footer {
@@ -70,327 +183,380 @@
 <body>
 <header>
   <h1>小児消化器 論文まとめ</h1>
-  <p class="updated">最終更新: 2026-08-08 01:15</p>
+  <p class="updated">最終更新: 2026-08-08 10:13</p>
   <p class="disclaimer">
     本サイトはPubMed掲載論文の抄録をAI（Claude）が自動で日本語要約したものです。
     誤りや訳出のニュアンス差を含む可能性があるため、内容の正確性は必ず原著論文で確認してください。
   </p>
+  <div class="toolbar">
+    <a class="btn" href="https://github.com/tnokats0416/pediatric-gi-report/actions/workflows/update.yml" target="_blank" rel="noopener">↻ 更新を実行（GitHub）</a>
+    <button id="bookmark-filter-btn" class="btn" type="button" aria-pressed="false">☆ ブックマークのみ表示</button>
+    <span class="bookmark-count-label">ブックマーク: <span id="bookmark-count">0</span>件</span>
+  </div>
 </header>
 <main>
-<article>
-  <h2>Vaccination in pediatric transplantation-General recommendations. A position paper by the European Reference Network TransplantChild.</h2>
+<p id="bookmark-empty">ブックマークした論文はまだありません。各論文右上の☆で追加できます。</p>
+<article data-pmid="42563542">
+  <button class="bookmark-btn" type="button" aria-pressed="false" aria-label="ブックマーク">☆</button>
+  <h2>小児移植における予防接種―総論的推奨事項：欧州リファレンスネットワークTransplantChildによるポジションペーパー</h2>
+  <p class="title-en">Vaccination in pediatric transplantation-General recommendations. A position paper by the European Reference Network TransplantChild.</p>
   <p class="meta">Journal of pediatric gastroenterology and nutrition ・ 2026 ・ PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/42563542/" target="_blank" rel="noopener">42563542</a> ・ DOI: <a href="https://doi.org/10.1002/jpn3.70523" target="_blank" rel="noopener">10.1002/jpn3.70523</a></p>
-  <p class="summary">- 背景:小児移植患者は感染症による罹病・死亡リスクが高く、免疫抑制やGVHDなどによりワクチン効果が減弱し、移植前後の接種戦略確立が課題である。
-- 方法:European Reference Network TransplantChild Working Groupが小児SOT・HSCT患者を対象としたワクチン関連文献を包括的に review し、エビデンスに基づく推奨作成を試みた。
-- 結果:移植前のワクチン接種状況不良、移植後の免疫応答低下、国別接種スケジュールの差異、ワクチン忌避などが接種率・防御免疫獲得の障壁として報告されている。
-- 臨床的示唆:本ポジションペーパーは現状の課題を整理し、小児SOT・HSCT患者における予防接種実践改善のための具体的推奨を提示する。</p>
+  <div class="abstract-card"><div class="section" style="--section-color: var(--sec-background)"><span class="label">背景</span><span class="text">小児移植患者は感染症による罹病・死亡リスクが高く、免疫抑制やGVHDなどによりワクチン効果が減弱し、移植前後の接種戦略確立が課題である。</span></div><div class="section" style="--section-color: var(--sec-method)"><span class="label">方法</span><span class="text">European Reference Network TransplantChild Working Groupが小児SOT・HSCT患者を対象としたワクチン関連文献を包括的に review し、エビデンスに基づく推奨作成を試みた。</span></div><div class="section" style="--section-color: var(--sec-result)"><span class="label">結果</span><span class="text">移植前のワクチン接種状況不良、移植後の免疫応答低下、国別接種スケジュールの差異、ワクチン忌避などが接種率・防御免疫獲得の障壁として報告されている。</span></div><div class="section" style="--section-color: var(--sec-implication)"><span class="label">臨床的示唆</span><span class="text">本ポジションペーパーは現状の課題を整理し、小児SOT・HSCT患者における予防接種実践改善のための具体的推奨を提示する。</span></div></div>
 </article>
-<article>
-  <h2>OSM-STAT3 signaling facilitates Long-term expansion of Pediatric Hepatic Organoids.</h2>
+<article data-pmid="42551535">
+  <button class="bookmark-btn" type="button" aria-pressed="false" aria-label="ブックマーク">☆</button>
+  <h2>OSM-STAT3シグナル伝達は小児肝臓オルガノイドの長期増幅を促進する</h2>
+  <p class="title-en">OSM-STAT3 signaling facilitates Long-term expansion of Pediatric Hepatic Organoids.</p>
   <p class="meta">Journal of hepatology ・ 2026 ・ PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/42551535/" target="_blank" rel="noopener">42551535</a> ・ DOI: <a href="https://doi.org/10.1016/j.jhep.2026.07.025" target="_blank" rel="noopener">10.1016/j.jhep.2026.07.025</a></p>
   <p class="summary">(要約は準備中です)</p>
 </article>
-<article>
-  <h2>Incorporating ambient artificial intelligence scribes into pediatric gastroenterology documentation: Key considerations.</h2>
+<article data-pmid="42548074">
+  <button class="bookmark-btn" type="button" aria-pressed="false" aria-label="ブックマーク">☆</button>
+  <h2>小児消化器科の診療記録へのアンビエント人工知能スクライブ導入：重要な考慮点</h2>
+  <p class="title-en">Incorporating ambient artificial intelligence scribes into pediatric gastroenterology documentation: Key considerations.</p>
   <p class="meta">Journal of pediatric gastroenterology and nutrition ・ 2026 ・ PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/42548074/" target="_blank" rel="noopener">42548074</a> ・ DOI: <a href="https://doi.org/10.1002/jpn3.70518" target="_blank" rel="noopener">10.1002/jpn3.70518</a></p>
   <p class="summary">(要約は準備中です)</p>
 </article>
-<article>
-  <h2>Disparities in child height at the time of inflammatory bowel disease diagnosis.</h2>
+<article data-pmid="42548066">
+  <button class="bookmark-btn" type="button" aria-pressed="false" aria-label="ブックマーク">☆</button>
+  <h2>炎症性腸疾患診断時における小児身長の格差</h2>
+  <p class="title-en">Disparities in child height at the time of inflammatory bowel disease diagnosis.</p>
   <p class="meta">Journal of pediatric gastroenterology and nutrition ・ 2026 ・ PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/42548066/" target="_blank" rel="noopener">42548066</a> ・ DOI: <a href="https://doi.org/10.1002/jpn3.70524" target="_blank" rel="noopener">10.1002/jpn3.70524</a></p>
-  <p class="summary">・背景: IBD診断時の成長遅延は重症疾患と関連するが、診断時身長の格差は不明であり、低社会経済状況で成長遅延がより多いと仮説。
-・方法: ICN Networkに登録された18歳未満のIBD患者13,691例を対象に、診断後90日以内の身長Zスコア&lt;-1(成長遅延)と保険加入・人種/民族との関連を後方視的に検討。
-・結果: 民間保険なし群は成長遅延が有意に多く(24.2% vs 20.1%)、Hispanic/Latino群も非Hispanicより多く(25.7% vs 20.7%)、民間保険なしのHispanic/Latino群が最も高率(28.6%)であった。
-・臨床的示唆: Hispanic/Latinoや無保険の小児はIBD診断時の成長遅延リスクが高く、診断・受診アクセスの遅延が要因と考えられ、公平な医療提供体制の構築が必要である。</p>
+  <div class="abstract-card"><div class="section" style="--section-color: var(--sec-background)"><span class="label">背景</span><span class="text">IBD診断時の成長遅延は重症疾患と関連するが、診断時身長の格差は不明であり、低社会経済状況で成長遅延がより多いと仮説。</span></div><div class="section" style="--section-color: var(--sec-method)"><span class="label">方法</span><span class="text">ICN Networkに登録された18歳未満のIBD患者13,691例を対象に、診断後90日以内の身長Zスコア&lt;-1(成長遅延)と保険加入・人種/民族との関連を後方視的に検討。</span></div><div class="section" style="--section-color: var(--sec-result)"><span class="label">結果</span><span class="text">民間保険なし群は成長遅延が有意に多く(24.2% vs 20.1%)、Hispanic/Latino群も非Hispanicより多く(25.7% vs 20.7%)、民間保険なしのHispanic/Latino群が最も高率(28.6%)であった。</span></div><div class="section" style="--section-color: var(--sec-implication)"><span class="label">臨床的示唆</span><span class="text">Hispanic/Latinoや無保険の小児はIBD診断時の成長遅延リスクが高く、診断・受診アクセスの遅延が要因と考えられ、公平な医療提供体制の構築が必要である。</span></div></div>
 </article>
-<article>
-  <h2>Glucagon-like peptide-1 receptor agonists in pediatrics: The pancreatology perspective.</h2>
+<article data-pmid="42535519">
+  <button class="bookmark-btn" type="button" aria-pressed="false" aria-label="ブックマーク">☆</button>
+  <h2>小児におけるグルカゴン様ペプチド-1受容体作動薬：膵臓学的観点からの検討</h2>
+  <p class="title-en">Glucagon-like peptide-1 receptor agonists in pediatrics: The pancreatology perspective.</p>
   <p class="meta">Journal of pediatric gastroenterology and nutrition ・ 2026 ・ PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/42535519/" target="_blank" rel="noopener">42535519</a> ・ DOI: <a href="https://doi.org/10.1002/jpn3.70512" target="_blank" rel="noopener">10.1002/jpn3.70512</a></p>
   <p class="summary">(要約は準備中です)</p>
 </article>
-<article>
-  <h2>Effectiveness of rifaximin in reducing central line-associated bloodstream infections in pediatric intestinal failure.</h2>
+<article data-pmid="42535493">
+  <button class="bookmark-btn" type="button" aria-pressed="false" aria-label="ブックマーク">☆</button>
+  <h2>小児腸管不全における中心静脈カテーテル関連血流感染症の減少に対するリファキシミンの有効性</h2>
+  <p class="title-en">Effectiveness of rifaximin in reducing central line-associated bloodstream infections in pediatric intestinal failure.</p>
   <p class="meta">Journal of pediatric gastroenterology and nutrition ・ 2026 ・ PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/42535493/" target="_blank" rel="noopener">42535493</a> ・ DOI: <a href="https://doi.org/10.1002/jpn3.70522" target="_blank" rel="noopener">10.1002/jpn3.70522</a></p>
-  <p class="summary">・背景：小児腸管不全患者は中心静脈カテーテル関連血流感染症（CLABSI）のリスクが高く、エタノールロック療法（ELT）は有効だが局所作用かつ入手性に限りがある。リファキシミンはSIBO治療に用いられる非吸収性抗菌薬である。
-
-・方法：2010〜2022年に単一小児施設で管理されたIF患者33例を対象に、リファキシミン導入前後12か月のCLABSI発生率をレトロスペクティブに比較（Poisson回帰）。
-
-・結果：リファキシミン導入前後でCLABSI発生率は10.2から7.3/1000カテーテル日に有意に減少（p=0.03）。ELT非併用例ではさらに顕著な減少（8.3→3.0、p&lt;0.001）を認めた。分離菌種の分布に有意差はなかった。
-
-・臨床的示唆：リファキシミンは小児IF患者におけるCLABSI予防の有効な選択肢となる可能性がある。</p>
+  <div class="abstract-card"><div class="section" style="--section-color: var(--sec-background)"><span class="label">背景</span><span class="text">小児腸管不全患者は中心静脈カテーテル関連血流感染症（CLABSI）のリスクが高く、エタノールロック療法（ELT）は有効だが局所作用かつ入手性に限りがある。リファキシミンはSIBO治療に用いられる非吸収性抗菌薬である。</span></div><div class="section" style="--section-color: var(--sec-method)"><span class="label">方法</span><span class="text">2010〜2022年に単一小児施設で管理されたIF患者33例を対象に、リファキシミン導入前後12か月のCLABSI発生率をレトロスペクティブに比較（Poisson回帰）。</span></div><div class="section" style="--section-color: var(--sec-result)"><span class="label">結果</span><span class="text">リファキシミン導入前後でCLABSI発生率は10.2から7.3/1000カテーテル日に有意に減少（p=0.03）。ELT非併用例ではさらに顕著な減少（8.3→3.0、p&lt;0.001）を認めた。分離菌種の分布に有意差はなかった。</span></div><div class="section" style="--section-color: var(--sec-implication)"><span class="label">臨床的示唆</span><span class="text">リファキシミンは小児IF患者におけるCLABSI予防の有効な選択肢となる可能性がある。</span></div></div>
 </article>
-<article>
-  <h2>Assessment of professional practise on Helicobacter pylori in paediatrics: A pan-European study.</h2>
+<article data-pmid="42535488">
+  <button class="bookmark-btn" type="button" aria-pressed="false" aria-label="ブックマーク">☆</button>
+  <h2>小児におけるHelicobacter pylori感染に関する専門診療の評価：欧州パンヨーロッパ研究</h2>
+  <p class="title-en">Assessment of professional practise on Helicobacter pylori in paediatrics: A pan-European study.</p>
   <p class="meta">Journal of pediatric gastroenterology and nutrition ・ 2026 ・ PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/42535488/" target="_blank" rel="noopener">42535488</a> ・ DOI: <a href="https://doi.org/10.1002/jpn3.70515" target="_blank" rel="noopener">10.1002/jpn3.70515</a></p>
-  <p class="summary">・背景：小児H. pylori感染症の診断・治療に関する最新ガイドラインが存在するが、欧州小児消化器科医の認知・実践状況は不明である。
-
-・方法：ESPGHAN加盟32カ国の医療者508名を対象にオンライン質問紙調査を実施し、記述統計・統計解析を行った。
-
-・結果：診断適応やガイドライン準拠率は7.5%と低く、侵襲的検査（培養66%、分子検査34%）を57%が要求、除菌療法にプロバイオティクスを半数以上が併用、地域間で治療レジメンに差異があった。
-
-・臨床的示唆：現行診療はガイドラインに完全準拠しておらず、欧州全体で教育・知識更新の必要性が示された。</p>
+  <div class="abstract-card"><div class="section" style="--section-color: var(--sec-background)"><span class="label">背景</span><span class="text">小児H. pylori感染症の診断・治療に関する最新ガイドラインが存在するが、欧州小児消化器科医の認知・実践状況は不明である。</span></div><div class="section" style="--section-color: var(--sec-method)"><span class="label">方法</span><span class="text">ESPGHAN加盟32カ国の医療者508名を対象にオンライン質問紙調査を実施し、記述統計・統計解析を行った。</span></div><div class="section" style="--section-color: var(--sec-result)"><span class="label">結果</span><span class="text">診断適応やガイドライン準拠率は7.5%と低く、侵襲的検査（培養66%、分子検査34%）を57%が要求、除菌療法にプロバイオティクスを半数以上が併用、地域間で治療レジメンに差異があった。</span></div><div class="section" style="--section-color: var(--sec-implication)"><span class="label">臨床的示唆</span><span class="text">現行診療はガイドラインに完全準拠しておらず、欧州全体で教育・知識更新の必要性が示された。</span></div></div>
 </article>
-<article>
-  <h2>Infliximab originator and biosimilars have similar efficacy in children with inflammatory bowel disease.</h2>
+<article data-pmid="42535439">
+  <button class="bookmark-btn" type="button" aria-pressed="false" aria-label="ブックマーク">☆</button>
+  <h2>インフリキシマブ先行品とバイオシミラーは小児炎症性腸疾患において同様の有効性を示す</h2>
+  <p class="title-en">Infliximab originator and biosimilars have similar efficacy in children with inflammatory bowel disease.</p>
   <p class="meta">Journal of pediatric gastroenterology and nutrition ・ 2026 ・ PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/42535439/" target="_blank" rel="noopener">42535439</a> ・ DOI: <a href="https://doi.org/10.1002/jpn3.70508" target="_blank" rel="noopener">10.1002/jpn3.70508</a></p>
-  <p class="summary">・背景: 小児IBDにおけるinfliximabオリジナル製剤とバイオシミラーの臨床効果の同等性は十分に検証されていない。
-
-・方法: ICN Networkレジストリを用い、18歳未満のIBD患児をプロペンシティスコアマッチングでオリジナル群・バイオシミラー群各214例に分け、12ヵ月時点の臨床転帰を後方視的に比較した。
-
-・結果: ステロイドフリー臨床的寛解、身長z-score、ヘマトクリット、アルブミン、CRP、薬剤中止・手術・入院までの時間に有意差はなかったが、便中calprotectinはバイオシミラー群で有意に高値であった（データ取得率30%）。
-
-・臨床的示唆: 厳密なマッチング解析により、小児IBDにおけるinfliximabオリジナルとバイオシミラーの有効性・治療継続性は同等であり、バイオシミラーへの切替を支持する。</p>
+  <div class="abstract-card"><div class="section" style="--section-color: var(--sec-background)"><span class="label">背景</span><span class="text">小児IBDにおけるinfliximabオリジナル製剤とバイオシミラーの臨床効果の同等性は十分に検証されていない。</span></div><div class="section" style="--section-color: var(--sec-method)"><span class="label">方法</span><span class="text">ICN Networkレジストリを用い、18歳未満のIBD患児をプロペンシティスコアマッチングでオリジナル群・バイオシミラー群各214例に分け、12ヵ月時点の臨床転帰を後方視的に比較した。</span></div><div class="section" style="--section-color: var(--sec-result)"><span class="label">結果</span><span class="text">ステロイドフリー臨床的寛解、身長z-score、ヘマトクリット、アルブミン、CRP、薬剤中止・手術・入院までの時間に有意差はなかったが、便中calprotectinはバイオシミラー群で有意に高値であった（データ取得率30%）。</span></div><div class="section" style="--section-color: var(--sec-implication)"><span class="label">臨床的示唆</span><span class="text">厳密なマッチング解析により、小児IBDにおけるinfliximabオリジナルとバイオシミラーの有効性・治療継続性は同等であり、バイオシミラーへの切替を支持する。</span></div></div>
 </article>
-<article>
-  <h2>The ImproveCareNow Registry: Prediction of remission rates in paediatric Crohn&#x27;s disease.</h2>
+<article data-pmid="42520290">
+  <button class="bookmark-btn" type="button" aria-pressed="false" aria-label="ブックマーク">☆</button>
+  <h2>小児クローン病における寛解率の予測：ImproveCareNowレジストリ</h2>
+  <p class="title-en">The ImproveCareNow Registry: Prediction of remission rates in paediatric Crohn&#x27;s disease.</p>
   <p class="meta">Journal of pediatric gastroenterology and nutrition ・ 2026 ・ PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/42520290/" target="_blank" rel="noopener">42520290</a> ・ DOI: <a href="https://doi.org/10.1002/jpn3.70519" target="_blank" rel="noopener">10.1002/jpn3.70519</a></p>
-  <p class="summary">・背景：小児Crohn病における予後不良の予測因子（POPO）は治療方針決定に有用と考えられるが、詳細は未確立である。
-
-・方法：ImproveCareNow Registry登録の6959例（&lt;18歳、2007-2023年）を対象に後方視的解析し、2年間の非寛解率および寛解・CS離脱寛解・持続寛解までの時間の予測因子をロジスティック/Cox回帰で検討した。
-
-・結果：女性、1年後のウステキヌマブ必要例は非寛解と関連。女性、白人、初診時IFX非使用は寛解までの時間が長く、診断時年齢が高いほど、BMIが低いほど持続寛解までの時間が長かった。
-
-・臨床的示唆：女性、若年、高BMIおよびbiologics導入時期などがPOPOであり、個別化治療戦略検討に役立つ可能性がある。</p>
+  <div class="abstract-card"><div class="section" style="--section-color: var(--sec-background)"><span class="label">背景</span><span class="text">小児Crohn病における予後不良の予測因子（POPO）は治療方針決定に有用と考えられるが、詳細は未確立である。</span></div><div class="section" style="--section-color: var(--sec-method)"><span class="label">方法</span><span class="text">ImproveCareNow Registry登録の6959例（&lt;18歳、2007-2023年）を対象に後方視的解析し、2年間の非寛解率および寛解・CS離脱寛解・持続寛解までの時間の予測因子をロジスティック/Cox回帰で検討した。</span></div><div class="section" style="--section-color: var(--sec-result)"><span class="label">結果</span><span class="text">女性、1年後のウステキヌマブ必要例は非寛解と関連。女性、白人、初診時IFX非使用は寛解までの時間が長く、診断時年齢が高いほど、BMIが低いほど持続寛解までの時間が長かった。</span></div><div class="section" style="--section-color: var(--sec-implication)"><span class="label">臨床的示唆</span><span class="text">女性、若年、高BMIおよびbiologics導入時期などがPOPOであり、個別化治療戦略検討に役立つ可能性がある。</span></div></div>
 </article>
-<article>
-  <h2>Are there age-related differences in the frequency of post-reflux peristaltic waves during impedance-pH monitoring?</h2>
+<article data-pmid="42504747">
+  <button class="bookmark-btn" type="button" aria-pressed="false" aria-label="ブックマーク">☆</button>
+  <h2>インピーダンス-pHモニタリングにおける post-reflux peristaltic wave の頻度に年齢関連差はあるか</h2>
+  <p class="title-en">Are there age-related differences in the frequency of post-reflux peristaltic waves during impedance-pH monitoring?</p>
   <p class="meta">Journal of pediatric gastroenterology and nutrition ・ 2026 ・ PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/42504747/" target="_blank" rel="noopener">42504747</a> ・ DOI: <a href="https://doi.org/10.1002/jpn3.70511" target="_blank" rel="noopener">10.1002/jpn3.70511</a></p>
-  <p class="summary">- 背景:PSPW指数は食道化学的クリアランスを反映するが、小児での年齢別データは限られている。
-- 方法:小児のpH/インピーダンス検査を後方視的に解析し、正常範囲の逆流所見を示す195例を年齢別3群（0-2歳、2-10歳、10-18歳）に分けPSPW指数を評価した。
-- 結果:2歳以下群は逆流回数が多く非酸性逆流優位・近位進展が大きく、PSPW指数も他群より有意に低かった(42.1% vs 52.6%, 50.0%)。
-- 臨床的示唆:PSPW指数の年齢別解釈が小児GERの評価と治療方針決定の精度向上に寄与する可能性がある。</p>
+  <div class="abstract-card"><div class="section" style="--section-color: var(--sec-background)"><span class="label">背景</span><span class="text">PSPW指数は食道化学的クリアランスを反映するが、小児での年齢別データは限られている。</span></div><div class="section" style="--section-color: var(--sec-method)"><span class="label">方法</span><span class="text">小児のpH/インピーダンス検査を後方視的に解析し、正常範囲の逆流所見を示す195例を年齢別3群（0-2歳、2-10歳、10-18歳）に分けPSPW指数を評価した。</span></div><div class="section" style="--section-color: var(--sec-result)"><span class="label">結果</span><span class="text">2歳以下群は逆流回数が多く非酸性逆流優位・近位進展が大きく、PSPW指数も他群より有意に低かった(42.1% vs 52.6%, 50.0%)。</span></div><div class="section" style="--section-color: var(--sec-implication)"><span class="label">臨床的示唆</span><span class="text">PSPW指数の年齢別解釈が小児GERの評価と治療方針決定の精度向上に寄与する可能性がある。</span></div></div>
 </article>
-<article>
-  <h2>Harnessing language in pediatric disorders of gut-brain interaction: A practical guide to suggestive communication.</h2>
+<article data-pmid="42504736">
+  <button class="bookmark-btn" type="button" aria-pressed="false" aria-label="ブックマーク">☆</button>
+  <h2>小児における腸脳相互作用障害における言語の活用：暗示的コミュニケーションの実践ガイド</h2>
+  <p class="title-en">Harnessing language in pediatric disorders of gut-brain interaction: A practical guide to suggestive communication.</p>
   <p class="meta">Journal of pediatric gastroenterology and nutrition ・ 2026 ・ PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/42504736/" target="_blank" rel="noopener">42504736</a> ・ DOI: <a href="https://doi.org/10.1002/jpn3.70520" target="_blank" rel="noopener">10.1002/jpn3.70520</a></p>
   <p class="summary">(要約は準備中です)</p>
 </article>
-<article>
-  <h2>Colonic dysmotility in children with functional constipation and psychiatric and developmental disorders.</h2>
+<article data-pmid="42265886">
+  <button class="bookmark-btn" type="button" aria-pressed="false" aria-label="ブックマーク">☆</button>
+  <h2>機能性便秘および精神・発達障害を有する小児における結腸運動機能障害</h2>
+  <p class="title-en">Colonic dysmotility in children with functional constipation and psychiatric and developmental disorders.</p>
   <p class="meta">Journal of pediatric gastroenterology and nutrition ・ 2026 ・ PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/42265886/" target="_blank" rel="noopener">42265886</a> ・ DOI: <a href="https://doi.org/10.1002/jpn3.70470" target="_blank" rel="noopener">10.1002/jpn3.70470</a></p>
   <p class="summary">(要約は準備中です)</p>
 </article>
-<article>
-  <h2>Correction to &quot;Subcutaneous infliximab use in children with inflammatory bowel disease in an Australian center&quot;.</h2>
+<article data-pmid="42257287">
+  <button class="bookmark-btn" type="button" aria-pressed="false" aria-label="ブックマーク">☆</button>
+  <h2>オーストラリアの一施設における小児炎症性腸疾患患者への皮下注射用インフリキシマブ使用に関する訂正</h2>
+  <p class="title-en">Correction to &quot;Subcutaneous infliximab use in children with inflammatory bowel disease in an Australian center&quot;.</p>
   <p class="meta">Journal of pediatric gastroenterology and nutrition ・ 2026 ・ PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/42257287/" target="_blank" rel="noopener">42257287</a> ・ DOI: <a href="https://doi.org/10.1002/jpn3.70478" target="_blank" rel="noopener">10.1002/jpn3.70478</a></p>
   <p class="summary">(要約は準備中です)</p>
 </article>
-<article>
-  <h2>Introducing new technology to your pediatric gastroenterology practice: Navigating the business side of healthcare.</h2>
+<article data-pmid="42257280">
+  <button class="bookmark-btn" type="button" aria-pressed="false" aria-label="ブックマーク">☆</button>
+  <h2>小児消化器診療への新技術導入：医療経営面のナビゲーション</h2>
+  <p class="title-en">Introducing new technology to your pediatric gastroenterology practice: Navigating the business side of healthcare.</p>
   <p class="meta">Journal of pediatric gastroenterology and nutrition ・ 2026 ・ PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/42257280/" target="_blank" rel="noopener">42257280</a> ・ DOI: <a href="https://doi.org/10.1002/jpn3.70477" target="_blank" rel="noopener">10.1002/jpn3.70477</a></p>
   <p class="summary">(要約は準備中です)</p>
 </article>
-<article>
-  <h2>Anesthesia-free transoral endoscopy using a novel modified pacifier in early infancy.</h2>
+<article data-pmid="42246211">
+  <button class="bookmark-btn" type="button" aria-pressed="false" aria-label="ブックマーク">☆</button>
+  <h2>乳児早期における新規改良型おしゃぶりを用いた無麻酔経口内視鏡検査</h2>
+  <p class="title-en">Anesthesia-free transoral endoscopy using a novel modified pacifier in early infancy.</p>
   <p class="meta">Journal of pediatric gastroenterology and nutrition ・ 2026 ・ PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/42246211/" target="_blank" rel="noopener">42246211</a> ・ DOI: <a href="https://doi.org/10.1016/j.cgh.2021.11.021" target="_blank" rel="noopener">10.1016/j.cgh.2021.11.021</a></p>
   <p class="summary">(要約は準備中です)</p>
 </article>
-<article>
-  <h2>A pilot randomized controlled trial of the self-management assistance for recommended treatment inflammatory bowel disease app for adolescents with inflammatory bowel disease.</h2>
+<article data-pmid="42220282">
+  <button class="bookmark-btn" type="button" aria-pressed="false" aria-label="ブックマーク">☆</button>
+  <h2>炎症性腸疾患を有する青年期患者を対象としたSMART-IBD（自己管理支援アプリ）に関するパイロットランダム化比較試験</h2>
+  <p class="title-en">A pilot randomized controlled trial of the self-management assistance for recommended treatment inflammatory bowel disease app for adolescents with inflammatory bowel disease.</p>
   <p class="meta">Journal of pediatric gastroenterology and nutrition ・ 2026 ・ PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/42220282/" target="_blank" rel="noopener">42220282</a> ・ DOI: <a href="https://doi.org/10.1097/MPG.0b013e318175dda1" target="_blank" rel="noopener">10.1097/MPG.0b013e318175dda1</a></p>
-  <p class="summary">・背景:小児IBD患者の自己管理支援を目的としたモバイルアプリ（SMART IBD app）の健康アウトカムへの効果は未確立である。
-・方法:IBDを有する青少年35名をSMART IBDアプリ群とアテンションコントロール群に無作為割付し、1ヵ月間の介入前後で日誌データを収集し比較した。
-・結果:SMART IBDアプリ群はAC群と比較し、知覚的ストレスの有意な減少と睡眠量の有意な増加を示した。
-・臨床的示唆:SMART IBDアプリはストレスや睡眠など、IBD管理に重要な健康アウトカムの改善に寄与する可能性がある。</p>
+  <div class="abstract-card"><div class="section" style="--section-color: var(--sec-background)"><span class="label">背景</span><span class="text">小児IBD患者の自己管理支援を目的としたモバイルアプリ（SMART IBD app）の健康アウトカムへの効果は未確立である。</span></div><div class="section" style="--section-color: var(--sec-method)"><span class="label">方法</span><span class="text">IBDを有する青少年35名をSMART IBDアプリ群とアテンションコントロール群に無作為割付し、1ヵ月間の介入前後で日誌データを収集し比較した。</span></div><div class="section" style="--section-color: var(--sec-result)"><span class="label">結果</span><span class="text">SMART IBDアプリ群はAC群と比較し、知覚的ストレスの有意な減少と睡眠量の有意な増加を示した。</span></div><div class="section" style="--section-color: var(--sec-implication)"><span class="label">臨床的示唆</span><span class="text">SMART IBDアプリはストレスや睡眠など、IBD管理に重要な健康アウトカムの改善に寄与する可能性がある。</span></div></div>
 </article>
-<article>
-  <h2>A systematic review of celiac disease recommendations for children with Down syndrome.</h2>
+<article data-pmid="42212585">
+  <button class="bookmark-btn" type="button" aria-pressed="false" aria-label="ブックマーク">☆</button>
+  <h2>ダウン症候群児におけるセリアック病に関する推奨事項のシステマティックレビュー</h2>
+  <p class="title-en">A systematic review of celiac disease recommendations for children with Down syndrome.</p>
   <p class="meta">Journal of pediatric gastroenterology and nutrition ・ 2026 ・ PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/42212585/" target="_blank" rel="noopener">42212585</a> ・ DOI: <a href="https://doi.org/10.1053/j.gastro.2014.05.003" target="_blank" rel="noopener">10.1053/j.gastro.2014.05.003</a></p>
-  <p class="summary">・背景：Down症候群(DS)患児はセリアック病(CD)有病率が高く、臨床・免疫学的特徴の重複により診断が難しいが、国際的な管理指針は統一されていない。
-
-・方法：PubMed等を用いてCD管理に関する国際ガイドライン・提言を系統的に検索し、AGREE IIツールで質評価を行い比較した（7件のガイドライン、2件の診療報告を採択）。
-
-・結果：BSPGHAN・ESPGHAN等は普遍的スクリーニングを推奨する一方、AAP・NICE等は症状ベース検査を推奨し方針は大きく異なる。tTG-IgAとtotal IgAによる血清学的スクリーニングは共通するが、DSにおける選択的IgA欠損の高頻度がIgG検査併用を必要とする複雑さを生む。HLA遺伝子検査は日常スクリーニングには非推奨だが、非感受性者除外や生検回避診断経路に有用。
-
-・臨床的示唆：ガイドライン間の不均一性が顕著であり、HLA-DQ2/DQ8の高い陰性予測値を活用した段階的診断戦略により、診断遅延・不要な検査を減らし、DS児のケアの公平性向上が期待される。</p>
+  <div class="abstract-card"><div class="section" style="--section-color: var(--sec-background)"><span class="label">背景</span><span class="text">Down症候群(DS)患児はセリアック病(CD)有病率が高く、臨床・免疫学的特徴の重複により診断が難しいが、国際的な管理指針は統一されていない。</span></div><div class="section" style="--section-color: var(--sec-method)"><span class="label">方法</span><span class="text">PubMed等を用いてCD管理に関する国際ガイドライン・提言を系統的に検索し、AGREE IIツールで質評価を行い比較した（7件のガイドライン、2件の診療報告を採択）。</span></div><div class="section" style="--section-color: var(--sec-result)"><span class="label">結果</span><span class="text">BSPGHAN・ESPGHAN等は普遍的スクリーニングを推奨する一方、AAP・NICE等は症状ベース検査を推奨し方針は大きく異なる。tTG-IgAとtotal IgAによる血清学的スクリーニングは共通するが、DSにおける選択的IgA欠損の高頻度がIgG検査併用を必要とする複雑さを生む。HLA遺伝子検査は日常スクリーニングには非推奨だが、非感受性者除外や生検回避診断経路に有用。</span></div><div class="section" style="--section-color: var(--sec-implication)"><span class="label">臨床的示唆</span><span class="text">ガイドライン間の不均一性が顕著であり、HLA-DQ2/DQ8の高い陰性予測値を活用した段階的診断戦略により、診断遅延・不要な検査を減らし、DS児のケアの公平性向上が期待される。</span></div></div>
 </article>
-<article>
-  <h2>Clinical, social, and motility factors influencing transanal irrigation response in pediatric patients.</h2>
+<article data-pmid="42212584">
+  <button class="bookmark-btn" type="button" aria-pressed="false" aria-label="ブックマーク">☆</button>
+  <h2>小児患者における経肛門的洗腸法の反応性に影響する臨床的・社会的・運動性因子</h2>
+  <p class="title-en">Clinical, social, and motility factors influencing transanal irrigation response in pediatric patients.</p>
   <p class="meta">Journal of pediatric gastroenterology and nutrition ・ 2026 ・ PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/42212584/" target="_blank" rel="noopener">42212584</a> ・ DOI: <a href="https://doi.org/10.1542/peds.2013-1580" target="_blank" rel="noopener">10.1542/peds.2013-1580</a></p>
-  <p class="summary">・背景: 小児の慢性便秘(CC)・便失禁(FI)に対しTAIは有効だが、アドヒアランスや効果に関わる予測因子は不明。
-・方法: 151例中63例が適格、38例のTAI導入患者のアドヒアランス・症状・QOL・肛門直腸内圧検査データを解析し、非導入例の保護者7名に障壁を聴取。
-・結果: アドヒアランス良好群は症状軽減・QOL向上(p=0.002)。ADHD(42.1%)は非アドヒアランスの有意な予測因子で症状重症・心理社会スコア低下と関連。マノメトリーは転帰を予測せず、保険・外傷への恐怖・物流的障壁が導入障害となった。
-・臨床的示唆: DGBIと器質性CC/FIでTAIの困難さは同様であり、ADHD児には個別化した介入戦略とアドヒアランス向上策、診断精度改善が必要。</p>
+  <div class="abstract-card"><div class="section" style="--section-color: var(--sec-background)"><span class="label">背景</span><span class="text">小児の慢性便秘(CC)・便失禁(FI)に対しTAIは有効だが、アドヒアランスや効果に関わる予測因子は不明。</span></div><div class="section" style="--section-color: var(--sec-method)"><span class="label">方法</span><span class="text">151例中63例が適格、38例のTAI導入患者のアドヒアランス・症状・QOL・肛門直腸内圧検査データを解析し、非導入例の保護者7名に障壁を聴取。</span></div><div class="section" style="--section-color: var(--sec-result)"><span class="label">結果</span><span class="text">アドヒアランス良好群は症状軽減・QOL向上(p=0.002)。ADHD(42.1%)は非アドヒアランスの有意な予測因子で症状重症・心理社会スコア低下と関連。マノメトリーは転帰を予測せず、保険・外傷への恐怖・物流的障壁が導入障害となった。</span></div><div class="section" style="--section-color: var(--sec-implication)"><span class="label">臨床的示唆</span><span class="text">DGBIと器質性CC/FIでTAIの困難さは同様であり、ADHD児には個別化した介入戦略とアドヒアランス向上策、診断精度改善が必要。</span></div></div>
 </article>
-<article>
-  <h2>Patterns in integrative medicine usage among pediatric patients in a disorders of gut-brain interaction clinic.</h2>
+<article data-pmid="42199055">
+  <button class="bookmark-btn" type="button" aria-pressed="false" aria-label="ブックマーク">☆</button>
+  <h2>腸脳相関障害クリニックにおける小児患者の統合医療利用パターン</h2>
+  <p class="title-en">Patterns in integrative medicine usage among pediatric patients in a disorders of gut-brain interaction clinic.</p>
   <p class="meta">Journal of pediatric gastroenterology and nutrition ・ 2026 ・ PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/42199055/" target="_blank" rel="noopener">42199055</a> ・ DOI: <a href="https://doi.org/10.3389/fnins.2023.1251470" target="_blank" rel="noopener">10.3389/fnins.2023.1251470</a></p>
   <p class="summary">(要約は準備中です)</p>
 </article>
-<article>
-  <h2>A multisociety consensus statement on a new common definition and diagnostic criteria for PSVD or NCPF.</h2>
+<article data-pmid="42191459">
+  <button class="bookmark-btn" type="button" aria-pressed="false" aria-label="ブックマーク">☆</button>
+  <h2>PSVDまたはNCPFの新たな共通定義と診断基準に関する複数学会合同コンセンサス声明</h2>
+  <p class="title-en">A multisociety consensus statement on a new common definition and diagnostic criteria for PSVD or NCPF.</p>
   <p class="meta">Journal of hepatology ・ 2026 ・ PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/42191459/" target="_blank" rel="noopener">42191459</a> ・ DOI: <a href="https://doi.org/10.1016/j.jhep.2026.04.030" target="_blank" rel="noopener">10.1016/j.jhep.2026.04.030</a></p>
-  <p class="summary">・背景：非硬変性門脈圧亢進症は地域ごとに用語（IPH、NCPF等）が異なり、AASLD/EASL/APASL間で定義も相違し、診断・研究協力に支障。
-・方法：肝臓・病理・小児肝臓病学の国際多学会が合同で作業部会とDelphi法による外部検証を含む合意形成プロセスを実施。
-・結果：PSVDとNCPFは同一診断基準下で互換可能とし、生検（≥10mm）に基づく臨床病理学的診断、肝硬変除外、主要/微小組織学的基準、門脈圧亢進所見の分類、統合診断スコアリングシステムを策定・検証。
-・臨床的示唆：国際的に統一された診断枠組みにより診断のばらつきを減らし、地域間比較可能性向上と国際共同研究基盤構築に寄与することが期待される。</p>
+  <div class="abstract-card"><div class="section" style="--section-color: var(--sec-background)"><span class="label">背景</span><span class="text">非硬変性門脈圧亢進症は地域ごとに用語（IPH、NCPF等）が異なり、AASLD/EASL/APASL間で定義も相違し、診断・研究協力に支障。</span></div><div class="section" style="--section-color: var(--sec-method)"><span class="label">方法</span><span class="text">肝臓・病理・小児肝臓病学の国際多学会が合同で作業部会とDelphi法による外部検証を含む合意形成プロセスを実施。</span></div><div class="section" style="--section-color: var(--sec-result)"><span class="label">結果</span><span class="text">PSVDとNCPFは同一診断基準下で互換可能とし、生検（≥10mm）に基づく臨床病理学的診断、肝硬変除外、主要/微小組織学的基準、門脈圧亢進所見の分類、統合診断スコアリングシステムを策定・検証。</span></div><div class="section" style="--section-color: var(--sec-implication)"><span class="label">臨床的示唆</span><span class="text">国際的に統一された診断枠組みにより診断のばらつきを減らし、地域間比較可能性向上と国際共同研究基盤構築に寄与することが期待される。</span></div></div>
 </article>
-<article>
-  <h2>A multisociety consensus statement on a new common definition and diagnostic criteria for PSVD or NCPF.</h2>
+<article data-pmid="42191125">
+  <button class="bookmark-btn" type="button" aria-pressed="false" aria-label="ブックマーク">☆</button>
+  <h2>PSVDまたはNCPFの新たな共通定義および診断基準に関する複数学会合同コンセンサス声明</h2>
+  <p class="title-en">A multisociety consensus statement on a new common definition and diagnostic criteria for PSVD or NCPF.</p>
   <p class="meta">Hepatology (Baltimore, Md.) ・ 2026 ・ PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/42191125/" target="_blank" rel="noopener">42191125</a> ・ DOI: <a href="https://doi.org/10.1097/HEP.0000000000001768" target="_blank" rel="noopener">10.1097/HEP.0000000000001768</a></p>
-  <p class="summary">・背景：非硬変性門脈圧亢進症はIPH、NCPF等の異名や学会間定義の相違により診断・報告に混乱があった。
-・方法：肝臓・病理・小児肝臓病学の国際多学会代表がワーキンググループとDelphi法により統一診断基準を策定。
-・結果：PSVDとNCPFは同一基準下で同義語として併記可能とされ、生検（≥10mm）に基づく臨床病理学的診断・肝硬変除外・主要/副次組織学的基準・スコアリングシステムが確立された。
-・臨床的示唆：本統一基準の国際的普及により診断のばらつきが減少し、国際共同研究・臨床コホート構築が促進されると期待される。</p>
+  <div class="abstract-card"><div class="section" style="--section-color: var(--sec-background)"><span class="label">背景</span><span class="text">非硬変性門脈圧亢進症はIPH、NCPF等の異名や学会間定義の相違により診断・報告に混乱があった。</span></div><div class="section" style="--section-color: var(--sec-method)"><span class="label">方法</span><span class="text">肝臓・病理・小児肝臓病学の国際多学会代表がワーキンググループとDelphi法により統一診断基準を策定。</span></div><div class="section" style="--section-color: var(--sec-result)"><span class="label">結果</span><span class="text">PSVDとNCPFは同一基準下で同義語として併記可能とされ、生検（≥10mm）に基づく臨床病理学的診断・肝硬変除外・主要/副次組織学的基準・スコアリングシステムが確立された。</span></div><div class="section" style="--section-color: var(--sec-implication)"><span class="label">臨床的示唆</span><span class="text">本統一基準の国際的普及により診断のばらつきが減少し、国際共同研究・臨床コホート構築が促進されると期待される。</span></div></div>
 </article>
-<article>
-  <h2>Duodenal vascular malformation in a pediatric patient: A rare cause of chronic anemia.</h2>
+<article data-pmid="42187131">
+  <button class="bookmark-btn" type="button" aria-pressed="false" aria-label="ブックマーク">☆</button>
+  <h2>小児患者における十二指腸血管奇形：慢性貧血の稀な原因</h2>
+  <p class="title-en">Duodenal vascular malformation in a pediatric patient: A rare cause of chronic anemia.</p>
   <p class="meta">Journal of pediatric gastroenterology and nutrition ・ 2026 ・ PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/42187131/" target="_blank" rel="noopener">42187131</a> ・ DOI: <a href="https://doi.org/10.1007/s00270-011-0123-0" target="_blank" rel="noopener">10.1007/s00270-011-0123-0</a></p>
   <p class="summary">(要約は準備中です)</p>
 </article>
-<article>
-  <h2>From bilirubin to breakthroughs: Contemporary outcomes in pediatric liver transplantation for cystic fibrosis.</h2>
+<article data-pmid="42187129">
+  <button class="bookmark-btn" type="button" aria-pressed="false" aria-label="ブックマーク">☆</button>
+  <h2>ビリルビンからブレイクスルーへ：嚢胞性線維症に対する小児肝移植の最新の成績</h2>
+  <p class="title-en">From bilirubin to breakthroughs: Contemporary outcomes in pediatric liver transplantation for cystic fibrosis.</p>
   <p class="meta">Journal of pediatric gastroenterology and nutrition ・ 2026 ・ PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/42187129/" target="_blank" rel="noopener">42187129</a> ・ DOI: <a href="https://doi.org/10.1002/jpn3.70392" target="_blank" rel="noopener">10.1002/jpn3.70392</a></p>
   <p class="summary">(要約は準備中です)</p>
 </article>
-<article>
-  <h2>False positive autoimmune markers and elevated immunoglobulin G in genetically confirmed Wilson disease.</h2>
+<article data-pmid="42179357">
+  <button class="bookmark-btn" type="button" aria-pressed="false" aria-label="ブックマーク">☆</button>
+  <h2>遺伝学的に確定したウィルソン病における自己免疫マーカー偽陽性および免疫グロブリンG上昇</h2>
+  <p class="title-en">False positive autoimmune markers and elevated immunoglobulin G in genetically confirmed Wilson disease.</p>
   <p class="meta">Journal of pediatric gastroenterology and nutrition ・ 2026 ・ PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/42179357/" target="_blank" rel="noopener">42179357</a> ・ DOI: <a href="https://doi.org/10.4254/wjh.v16.i8.1111" target="_blank" rel="noopener">10.4254/wjh.v16.i8.1111</a></p>
-  <p class="summary">・背景：Wilson病（WD）と自己免疫性肝炎（AIH）は臨床・免疫学的所見が重複し、鑑別診断が困難な小児慢性肝疾患である。
-・方法：遺伝学的に確定した未治療小児WD患者79例とAIH対照112例で、血清IgGおよび自己抗体プロファイル、組織像を後方視的に比較検討した。
-・結果：WD患者の82.3%でIgG高値、31.5%で自己抗体陽性、20.2%がAIH簡易診断基準を満たしたが、AIH群よりIgG値・自己抗体陽性率は有意に低く、組織学的には脂肪化・膨化変性が多く、界面性肝炎・形質細胞浸潤は少なかった。
-・臨床的示唆：WDはAIHと誤診されうるため、組織学的評価と遺伝学的検査を含む包括的評価が適切な治療選択に不可欠である。</p>
+  <div class="abstract-card"><div class="section" style="--section-color: var(--sec-background)"><span class="label">背景</span><span class="text">Wilson病（WD）と自己免疫性肝炎（AIH）は臨床・免疫学的所見が重複し、鑑別診断が困難な小児慢性肝疾患である。</span></div><div class="section" style="--section-color: var(--sec-method)"><span class="label">方法</span><span class="text">遺伝学的に確定した未治療小児WD患者79例とAIH対照112例で、血清IgGおよび自己抗体プロファイル、組織像を後方視的に比較検討した。</span></div><div class="section" style="--section-color: var(--sec-result)"><span class="label">結果</span><span class="text">WD患者の82.3%でIgG高値、31.5%で自己抗体陽性、20.2%がAIH簡易診断基準を満たしたが、AIH群よりIgG値・自己抗体陽性率は有意に低く、組織学的には脂肪化・膨化変性が多く、界面性肝炎・形質細胞浸潤は少なかった。</span></div><div class="section" style="--section-color: var(--sec-implication)"><span class="label">臨床的示唆</span><span class="text">WDはAIHと誤診されうるため、組織学的評価と遺伝学的検査を含む包括的評価が適切な治療選択に不可欠である。</span></div></div>
 </article>
-<article>
-  <h2>Hospital costs for infants with brief resolved unexplained events given a diagnosis of gastroesophageal reflux disease.</h2>
+<article data-pmid="42179356">
+  <button class="bookmark-btn" type="button" aria-pressed="false" aria-label="ブックマーク">☆</button>
+  <h2>胃食道逆流症と診断された乳児のBrief Resolved Unexplained Eventsに対する入院費用</h2>
+  <p class="title-en">Hospital costs for infants with brief resolved unexplained events given a diagnosis of gastroesophageal reflux disease.</p>
   <p class="meta">Journal of pediatric gastroenterology and nutrition ・ 2026 ・ PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/42179356/" target="_blank" rel="noopener">42179356</a> ・ DOI: <a href="https://doi.org/10.1002/jpn3.70460" target="_blank" rel="noopener">10.1002/jpn3.70460</a></p>
   <p class="summary">(要約は準備中です)</p>
 </article>
-<article>
-  <h2>High prevalence of ultra-short celiac disease in children with low anti-tissue transglutaminase immunoglobulin A levels: The risk of misdiagnosis without bulb biopsy.</h2>
+<article data-pmid="42179344">
+  <button class="bookmark-btn" type="button" aria-pressed="false" aria-label="ブックマーク">☆</button>
+  <h2>抗組織トランスグルタミナーゼIgA低値の小児における超短型セリアック病の高頻度発生：球部生検を行わない場合の誤診リスク</h2>
+  <p class="title-en">High prevalence of ultra-short celiac disease in children with low anti-tissue transglutaminase immunoglobulin A levels: The risk of misdiagnosis without bulb biopsy.</p>
   <p class="meta">Journal of pediatric gastroenterology and nutrition ・ 2026 ・ PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/42179344/" target="_blank" rel="noopener">42179344</a> ・ DOI: <a href="https://doi.org/10.1053/j.gastro.2019.04.004" target="_blank" rel="noopener">10.1053/j.gastro.2019.04.004</a></p>
-  <p class="summary">・背景：ultra-short celiac disease（USCD）は十二指腸球部に限局した絨毛萎縮を特徴とするCDの一亜型であり、球部生検を省略するとpotential celiac disease（PCD）として誤分類される可能性が指摘されている。
-
-・方法：2017年6月〜2024年12月に単施設で内視鏡検査を受けた小児患者を対象に、生検プロトコル（DII単独 vs DII+球部）別に後方視的に検討し、TTG-IgA値を予測因子とするロジスティック回帰モデルでDII群におけるUSCD見逃しの可能性を推定した。
-
-・結果：TTG-IgA&lt;10×ULNの361例中、DII+球部群337例では classic CD 41.5%、PCD 16%、USCD 42.4%と分類され、球部生検の遵守によりPCD検出率が大幅に低下した。DII群のPCD9例中7例がUSCDである可能性が示された。
-
-・臨床的示唆：低TTG-IgA例では系統的な球部生検がUSCD検出率を有意に改善するため、球部生検なしで診断されたPCD例、特に成人診療への移行期の患者は再評価が必要である。</p>
+  <div class="abstract-card"><div class="section" style="--section-color: var(--sec-background)"><span class="label">背景</span><span class="text">ultra-short celiac disease（USCD）は十二指腸球部に限局した絨毛萎縮を特徴とするCDの一亜型であり、球部生検を省略するとpotential celiac disease（PCD）として誤分類される可能性が指摘されている。</span></div><div class="section" style="--section-color: var(--sec-method)"><span class="label">方法</span><span class="text">2017年6月〜2024年12月に単施設で内視鏡検査を受けた小児患者を対象に、生検プロトコル（DII単独 vs DII+球部）別に後方視的に検討し、TTG-IgA値を予測因子とするロジスティック回帰モデルでDII群におけるUSCD見逃しの可能性を推定した。</span></div><div class="section" style="--section-color: var(--sec-result)"><span class="label">結果</span><span class="text">TTG-IgA&lt;10×ULNの361例中、DII+球部群337例では classic CD 41.5%、PCD 16%、USCD 42.4%と分類され、球部生検の遵守によりPCD検出率が大幅に低下した。DII群のPCD9例中7例がUSCDである可能性が示された。</span></div><div class="section" style="--section-color: var(--sec-implication)"><span class="label">臨床的示唆</span><span class="text">低TTG-IgA例では系統的な球部生検がUSCD検出率を有意に改善するため、球部生検なしで診断されたPCD例、特に成人診療への移行期の患者は再評価が必要である。</span></div></div>
 </article>
-<article>
-  <h2>Nutritional adequacy and diet diversity following a tube weaning program.</h2>
+<article data-pmid="42179335">
+  <button class="bookmark-btn" type="button" aria-pressed="false" aria-label="ブックマーク">☆</button>
+  <h2>チューブ離乳プログラム後の栄養充足度と食事多様性</h2>
+  <p class="title-en">Nutritional adequacy and diet diversity following a tube weaning program.</p>
   <p class="meta">Journal of pediatric gastroenterology and nutrition ・ 2026 ・ PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/42179335/" target="_blank" rel="noopener">42179335</a> ・ DOI: <a href="https://doi.org/10.1111/mcn.13693" target="_blank" rel="noopener">10.1111/mcn.13693</a></p>
-  <p class="summary">・背景: 経管栄養離脱後の栄養状態変化に関する研究は限られている。
-・方法: 2016-2024年にHelsinki大学小児病院で3週間の飢餓誘発型外来チューブ離脱プログラムを受けた51例の栄養摂取・消化器症状・成長を後方視的に検討。
-・結果: 72.5%が離脱成功し、経口摂取由来エネルギー割合は6.2%から77.2%に増加、食事多様性向上と消化器症状減少を認めたが、離脱後も一部ビタミン・ミネラルは推奨量に達せず補充が必要。
-・臨床的示唆: 離脱成功後も長期フォローアップと栄養補充、栄養士による定期的な食事評価が成長・栄養状態維持に重要である。</p>
+  <div class="abstract-card"><div class="section" style="--section-color: var(--sec-background)"><span class="label">背景</span><span class="text">経管栄養離脱後の栄養状態変化に関する研究は限られている。</span></div><div class="section" style="--section-color: var(--sec-method)"><span class="label">方法</span><span class="text">2016-2024年にHelsinki大学小児病院で3週間の飢餓誘発型外来チューブ離脱プログラムを受けた51例の栄養摂取・消化器症状・成長を後方視的に検討。</span></div><div class="section" style="--section-color: var(--sec-result)"><span class="label">結果</span><span class="text">72.5%が離脱成功し、経口摂取由来エネルギー割合は6.2%から77.2%に増加、食事多様性向上と消化器症状減少を認めたが、離脱後も一部ビタミン・ミネラルは推奨量に達せず補充が必要。</span></div><div class="section" style="--section-color: var(--sec-implication)"><span class="label">臨床的示唆</span><span class="text">離脱成功後も長期フォローアップと栄養補充、栄養士による定期的な食事評価が成長・栄養状態維持に重要である。</span></div></div>
 </article>
-<article>
-  <h2>Improving nutritional assessment in pediatric anorexia nervosa: Clinical value of key serum biomarkers.</h2>
+<article data-pmid="42179331">
+  <button class="bookmark-btn" type="button" aria-pressed="false" aria-label="ブックマーク">☆</button>
+  <h2>小児神経性やせ症における栄養評価の改善：主要な血清バイオマーカーの臨床的価値</h2>
+  <p class="title-en">Improving nutritional assessment in pediatric anorexia nervosa: Clinical value of key serum biomarkers.</p>
   <p class="meta">Journal of pediatric gastroenterology and nutrition ・ 2026 ・ PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/42179331/" target="_blank" rel="noopener">42179331</a> ・ DOI: <a href="https://doi.org/10.1093/ajcn/64.6.952" target="_blank" rel="noopener">10.1093/ajcn/64.6.952</a></p>
-  <p class="summary">・背景：小児神経性やせ症（AN）における飢餓状態の検出・モニタリングに有用な信頼性の高い生化学マーカーが求められている。
-・方法：AN患者65例を対象に前向きコホート研究を実施し、診断時の血清中カルシウム、リン、ALP、アルブミン、トランスフェリン、セルロプラスミン、プレアルブミン、C3・C4補体、フェリチン、ビタミンDを測定し、表現型・重症度別に比較、ROC解析を行った。
-・結果：非定型AN群は古典的AN群よりトランスフェリン・C3が高値、重症低栄養群（Z≤-2.0）はフェリチン高値、トランスフェリン・セルロプラスミン・C3低値を示し、C3のROC AUCが0.75と最良の判別能を示した。特異度・陰性的中率は高値であった。プレアルブミンは表現型・重症度と無相関であった。
-・臨床的示唆：トランスフェリン、セルロプラスミン、C3、フェリチンは飢餓の異なる側面を反映し、特にC3は重症低栄養の早期同定・モニタリングに有用な可能性がある。</p>
+  <div class="abstract-card"><div class="section" style="--section-color: var(--sec-background)"><span class="label">背景</span><span class="text">小児神経性やせ症（AN）における飢餓状態の検出・モニタリングに有用な信頼性の高い生化学マーカーが求められている。</span></div><div class="section" style="--section-color: var(--sec-method)"><span class="label">方法</span><span class="text">AN患者65例を対象に前向きコホート研究を実施し、診断時の血清中カルシウム、リン、ALP、アルブミン、トランスフェリン、セルロプラスミン、プレアルブミン、C3・C4補体、フェリチン、ビタミンDを測定し、表現型・重症度別に比較、ROC解析を行った。</span></div><div class="section" style="--section-color: var(--sec-result)"><span class="label">結果</span><span class="text">非定型AN群は古典的AN群よりトランスフェリン・C3が高値、重症低栄養群（Z≤-2.0）はフェリチン高値、トランスフェリン・セルロプラスミン・C3低値を示し、C3のROC AUCが0.75と最良の判別能を示した。特異度・陰性的中率は高値であった。プレアルブミンは表現型・重症度と無相関であった。</span></div><div class="section" style="--section-color: var(--sec-implication)"><span class="label">臨床的示唆</span><span class="text">トランスフェリン、セルロプラスミン、C3、フェリチンは飢餓の異なる側面を反映し、特にC3は重症低栄養の早期同定・モニタリングに有用な可能性がある。</span></div></div>
 </article>
-<article>
-  <h2>Real-world treatment of pediatric Hepatitis C: A Florida experience.</h2>
+<article data-pmid="42179325">
+  <button class="bookmark-btn" type="button" aria-pressed="false" aria-label="ブックマーク">☆</button>
+  <h2>小児C型肝炎の実臨床における治療：フロリダでの経験</h2>
+  <p class="title-en">Real-world treatment of pediatric Hepatitis C: A Florida experience.</p>
   <p class="meta">Journal of pediatric gastroenterology and nutrition ・ 2026 ・ PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/42179325/" target="_blank" rel="noopener">42179325</a> ・ DOI: <a href="https://doi.org/10.1002/hep.22094" target="_blank" rel="noopener">10.1002/hep.22094</a></p>
   <p class="summary">(要約は準備中です)</p>
 </article>
-<article>
-  <h2>Efficacy and safety of post-Kasai steroid-based protocol in biliary atresia.</h2>
+<article data-pmid="42165317">
+  <button class="bookmark-btn" type="button" aria-pressed="false" aria-label="ブックマーク">☆</button>
+  <h2>胆道閉鎖症におけるKasai術後ステロイドプロトコルの有効性と安全性</h2>
+  <p class="title-en">Efficacy and safety of post-Kasai steroid-based protocol in biliary atresia.</p>
   <p class="meta">Journal of pediatric gastroenterology and nutrition ・ 2026 ・ PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/42165317/" target="_blank" rel="noopener">42165317</a> ・ DOI: <a href="https://doi.org/10.1016/j.sempedsurg.2025.151471" target="_blank" rel="noopener">10.1016/j.sempedsurg.2025.151471</a></p>
-  <p class="summary">- 背景: 胆道閉鎖症術後のステロイド投与が黄疸消退・自己肝生存に有効かは不明である。
-- 方法: Kasai術施行例127名（ステロイド群70名、既往対照群57名）で無胆汁便持続時に術後プレドニゾロン投与し比較検討した。
-- 結果: 6ヵ月時黄疸消退率はステロイド群で有意に高く（61.4%対38.6%）、24ヵ月自己肝生存も改善、若年齢での手術・低ビリルビン値・ステロイド使用が独立予測因子であった。
-- 臨床的示唆: Kasai術後の中等量プレドニゾロンは早期胆汁排泄を促進し自己肝生存を延長させ、生後70日以内の手術で効果が最大化する可能性がある。</p>
+  <div class="abstract-card"><div class="section" style="--section-color: var(--sec-background)"><span class="label">背景</span><span class="text">胆道閉鎖症術後のステロイド投与が黄疸消退・自己肝生存に有効かは不明である。</span></div><div class="section" style="--section-color: var(--sec-method)"><span class="label">方法</span><span class="text">Kasai術施行例127名（ステロイド群70名、既往対照群57名）で無胆汁便持続時に術後プレドニゾロン投与し比較検討した。</span></div><div class="section" style="--section-color: var(--sec-result)"><span class="label">結果</span><span class="text">6ヵ月時黄疸消退率はステロイド群で有意に高く（61.4%対38.6%）、24ヵ月自己肝生存も改善、若年齢での手術・低ビリルビン値・ステロイド使用が独立予測因子であった。</span></div><div class="section" style="--section-color: var(--sec-implication)"><span class="label">臨床的示唆</span><span class="text">Kasai術後の中等量プレドニゾロンは早期胆汁排泄を促進し自己肝生存を延長させ、生後70日以内の手術で効果が最大化する可能性がある。</span></div></div>
 </article>
-<article>
-  <h2>Identifying patient-centered outcomes in progressive familial intrahepatic cholestasis: Results from IMPACT.</h2>
+<article data-pmid="42165309">
+  <button class="bookmark-btn" type="button" aria-pressed="false" aria-label="ブックマーク">☆</button>
+  <h2>進行性家族性肝内胆汁うっ滞症における患者中心アウトカムの同定：IMPACTの結果</h2>
+  <p class="title-en">Identifying patient-centered outcomes in progressive familial intrahepatic cholestasis: Results from IMPACT.</p>
   <p class="meta">Journal of pediatric gastroenterology and nutrition ・ 2026 ・ PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/42165309/" target="_blank" rel="noopener">42165309</a> ・ DOI: <a href="https://doi.org/10.1016/j.jclinepi.2021.11.034" target="_blank" rel="noopener">10.1016/j.jclinepi.2021.11.034</a></p>
-  <p class="summary">- 背景:PFICでは治療の多様性に関するエビデンスが不足し、患者中心の比較効果研究(CER)の知識・基盤整備が課題。
-- 方法:PCORI由来の6学習モジュールとフォーカスグループ(12回)を用い、患者・家族・臨床医が参加してCER優先事項を検討、患者エンゲージメントを評価。
-- 結果:患者・家族16-31名、臨床医5-8名が参加。治療体験アプリ(TEA)とIMPACTロードマップを作成し、エンゲージメント評価は良好かつ改善傾向。
-- 臨床的示唆:PFICにおける患者中心CERの推進基盤が構築され、今後の患者-研究者協働研究の指針となる。</p>
+  <div class="abstract-card"><div class="section" style="--section-color: var(--sec-background)"><span class="label">背景</span><span class="text">PFICでは治療の多様性に関するエビデンスが不足し、患者中心の比較効果研究(CER)の知識・基盤整備が課題。</span></div><div class="section" style="--section-color: var(--sec-method)"><span class="label">方法</span><span class="text">PCORI由来の6学習モジュールとフォーカスグループ(12回)を用い、患者・家族・臨床医が参加してCER優先事項を検討、患者エンゲージメントを評価。</span></div><div class="section" style="--section-color: var(--sec-result)"><span class="label">結果</span><span class="text">患者・家族16-31名、臨床医5-8名が参加。治療体験アプリ(TEA)とIMPACTロードマップを作成し、エンゲージメント評価は良好かつ改善傾向。</span></div><div class="section" style="--section-color: var(--sec-implication)"><span class="label">臨床的示唆</span><span class="text">PFICにおける患者中心CERの推進基盤が構築され、今後の患者-研究者協働研究の指針となる。</span></div></div>
 </article>
-<article>
-  <h2>European Society for Paediatric Gastroenterology, Hepatology and Nutrition/North American Society for Pediatric Gastroenterology, Hepatology and Nutrition guidelines for treatment of functional constipation in children aged 0-18 years.</h2>
+<article data-pmid="42159193">
+  <button class="bookmark-btn" type="button" aria-pressed="false" aria-label="ブックマーク">☆</button>
+  <h2>小児（0～18歳）の機能性便秘の治療に関するヨーロッパ小児消化器肝臓栄養学会/北米小児消化器肝臓栄養学会ガイドライン</h2>
+  <p class="title-en">European Society for Paediatric Gastroenterology, Hepatology and Nutrition/North American Society for Pediatric Gastroenterology, Hepatology and Nutrition guidelines for treatment of functional constipation in children aged 0-18 years.</p>
   <p class="meta">Journal of pediatric gastroenterology and nutrition ・ 2026 ・ PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/42159193/" target="_blank" rel="noopener">42159193</a> ・ DOI: <a href="https://doi.org/10.1002/jpn3.70447" target="_blank" rel="noopener">10.1002/jpn3.70447</a></p>
-  <p class="summary">・背景: 小児機能性便秘（FC）はQOLに大きく影響し、2014年の国際ガイドライン以降新たな知見が蓄積、方法論も発展した。
-
-・方法: ESPGHANとNASPGHANが共同でGRADE手法に基づきガイドラインを作成し、PICO質問、Delphi法による閾値決定、コンセンサス投票で推奨を策定した。
-
-・結果: 102件のRCTを精査し、11のGRADE推奨と19の推奨実践声明を策定、治療アルゴリズムを開発した。
-
-・臨床的示唆: 多くの治療選択肢でエビデンスが不足しており、特に低確実性・無エビデンス領域について今後大規模小児RCTが必要である。</p>
+  <div class="abstract-card"><div class="section" style="--section-color: var(--sec-background)"><span class="label">背景</span><span class="text">小児機能性便秘（FC）はQOLに大きく影響し、2014年の国際ガイドライン以降新たな知見が蓄積、方法論も発展した。</span></div><div class="section" style="--section-color: var(--sec-method)"><span class="label">方法</span><span class="text">ESPGHANとNASPGHANが共同でGRADE手法に基づきガイドラインを作成し、PICO質問、Delphi法による閾値決定、コンセンサス投票で推奨を策定した。</span></div><div class="section" style="--section-color: var(--sec-result)"><span class="label">結果</span><span class="text">102件のRCTを精査し、11のGRADE推奨と19の推奨実践声明を策定、治療アルゴリズムを開発した。</span></div><div class="section" style="--section-color: var(--sec-implication)"><span class="label">臨床的示唆</span><span class="text">多くの治療選択肢でエビデンスが不足しており、特に低確実性・無エビデンス領域について今後大規模小児RCTが必要である。</span></div></div>
 </article>
-<article>
-  <h2>The rumination severity index: Development and evaluation of a scoring tool for rumination syndrome.</h2>
+<article data-pmid="42080306">
+  <button class="bookmark-btn" type="button" aria-pressed="false" aria-label="ブックマーク">☆</button>
+  <h2>反芻症候群重症度指数：反芻症候群評価尺度の開発と評価</h2>
+  <p class="title-en">The rumination severity index: Development and evaluation of a scoring tool for rumination syndrome.</p>
   <p class="meta">Journal of pediatric gastroenterology and nutrition ・ 2026 ・ PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/42080306/" target="_blank" rel="noopener">42080306</a> ・ DOI: <a href="https://doi.org/10.1093/dote/doae009" target="_blank" rel="noopener">10.1093/dote/doae009</a></p>
-  <p class="summary">- 背景：小児の反芻症候群(RS)は認知が高まっているが、重症度評価ツールが存在しない。
-- 方法：7項目の患者報告式質問票RumSIを開発し、RS患児にRumSIとPedsQLを実施、相関と再現性を検証。
-- 結果：66例で解析、RumSIとPedsQLは有意な負の相関(r=-0.45)、再検査信頼性は良好(ICC=0.84)。
-- 臨床的示唆：RumSIは小児RS重症度評価の初の妥当性検証済みツールであり、臨床・研究での活用が期待される。</p>
+  <div class="abstract-card"><div class="section" style="--section-color: var(--sec-background)"><span class="label">背景</span><span class="text">小児の反芻症候群(RS)は認知が高まっているが、重症度評価ツールが存在しない。</span></div><div class="section" style="--section-color: var(--sec-method)"><span class="label">方法</span><span class="text">7項目の患者報告式質問票RumSIを開発し、RS患児にRumSIとPedsQLを実施、相関と再現性を検証。</span></div><div class="section" style="--section-color: var(--sec-result)"><span class="label">結果</span><span class="text">66例で解析、RumSIとPedsQLは有意な負の相関(r=-0.45)、再検査信頼性は良好(ICC=0.84)。</span></div><div class="section" style="--section-color: var(--sec-implication)"><span class="label">臨床的示唆</span><span class="text">RumSIは小児RS重症度評価の初の妥当性検証済みツールであり、臨床・研究での活用が期待される。</span></div></div>
 </article>
-<article>
-  <h2>Decision aid reduces caregivers&#x27; preference for acid-suppressive medication in infants with symptoms suggestive of reflux.</h2>
+<article data-pmid="42080300">
+  <button class="bookmark-btn" type="button" aria-pressed="false" aria-label="ブックマーク">☆</button>
+  <h2>意思決定支援ツールは逆流を示唆する症状を有する乳児の介護者における酸分泌抑制薬への選好を減少させる</h2>
+  <p class="title-en">Decision aid reduces caregivers&#x27; preference for acid-suppressive medication in infants with symptoms suggestive of reflux.</p>
   <p class="meta">Journal of pediatric gastroenterology and nutrition ・ 2026 ・ PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/42080300/" target="_blank" rel="noopener">42080300</a> ・ DOI: <a href="https://doi.org/10.22037/ijpr.2021.115446.15370" target="_blank" rel="noopener">10.22037/ijpr.2021.115446.15370</a></p>
-  <p class="summary">・背景: GER様症状(逆流・過度の啼泣)を有する乳児の養育者は不安を感じ、しばしば不要な酸抑制薬治療を希望する。
-
-・方法: 18ヵ月未満の乳児110例を対象に、GERDと3治療選択肢(生活指導・増粘栄養・酸抑制薬)を説明する意思決定支援ツールを用い、受診前後・受診後の治療選好とDecisional Conflict Scale(DCS)を評価。
-
-・結果: 酸抑制薬への選好は受診前58%から支援ツール使用後43%、受診後11%へ有意に減少し、DCSスコアも47.2→34.4→19.0と有意に改善した。
-
-・臨床的示唆: 意思決定支援ツールはGER様症状児における養育者の酸抑制薬選好を減少させ、意思決定の確信度を高めることで、適切な医療提供を促進する可能性がある。</p>
+  <div class="abstract-card"><div class="section" style="--section-color: var(--sec-background)"><span class="label">背景</span><span class="text">GER様症状(逆流・過度の啼泣)を有する乳児の養育者は不安を感じ、しばしば不要な酸抑制薬治療を希望する。</span></div><div class="section" style="--section-color: var(--sec-method)"><span class="label">方法</span><span class="text">18ヵ月未満の乳児110例を対象に、GERDと3治療選択肢(生活指導・増粘栄養・酸抑制薬)を説明する意思決定支援ツールを用い、受診前後・受診後の治療選好とDecisional Conflict Scale(DCS)を評価。</span></div><div class="section" style="--section-color: var(--sec-result)"><span class="label">結果</span><span class="text">酸抑制薬への選好は受診前58%から支援ツール使用後43%、受診後11%へ有意に減少し、DCSスコアも47.2→34.4→19.0と有意に改善した。</span></div><div class="section" style="--section-color: var(--sec-implication)"><span class="label">臨床的示唆</span><span class="text">意思決定支援ツールはGER様症状児における養育者の酸抑制薬選好を減少させ、意思決定の確信度を高めることで、適切な医療提供を促進する可能性がある。</span></div></div>
 </article>
-<article>
-  <h2>The incidence and prevalence of paediatric inflammatory bowel disease in Scotland: A nationwide study from 2015 to 2018.</h2>
+<article data-pmid="42057762">
+  <button class="bookmark-btn" type="button" aria-pressed="false" aria-label="ブックマーク">☆</button>
+  <h2>スコットランドにおける小児炎症性腸疾患の発症率および有病率：2015年から2018年の全国調査</h2>
+  <p class="title-en">The incidence and prevalence of paediatric inflammatory bowel disease in Scotland: A nationwide study from 2015 to 2018.</p>
   <p class="meta">Journal of pediatric gastroenterology and nutrition ・ 2026 ・ PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/42057762/" target="_blank" rel="noopener">42057762</a> ・ DOI: <a href="https://doi.org/10.1002/jpn3.70450" target="_blank" rel="noopener">10.1002/jpn3.70450</a></p>
-  <p class="summary">・背景: スコットランドは英国内および世界的にも小児発症炎症性腸疾患(PIBD)の罹患率が最高水準だが、有病率データが乏しい。
-
-・方法: 2015〜2018年に全国3地域の小児消化器ネットワークが16歳未満のPIBD新規・既存患者を前方視的に登録し、罹患率と点・期間有病率を算出。
-
-・結果: 4年間で438例が新規診断され、罹患率12.0/10万人年。期間有病率最大58.5/10万人年、点有病率最大45.9/10万人。2017年時点で16歳以上の移行未実施例が159例存在。
-
-・臨床的示唆: スコットランドのPIBD罹患率・有病率は世界最高水準であり、移行期患者を含めると実際の小児医療需要は最大30%高い可能性があり、医療体制整備が必要。</p>
+  <div class="abstract-card"><div class="section" style="--section-color: var(--sec-background)"><span class="label">背景</span><span class="text">スコットランドは英国内および世界的にも小児発症炎症性腸疾患(PIBD)の罹患率が最高水準だが、有病率データが乏しい。</span></div><div class="section" style="--section-color: var(--sec-method)"><span class="label">方法</span><span class="text">2015〜2018年に全国3地域の小児消化器ネットワークが16歳未満のPIBD新規・既存患者を前方視的に登録し、罹患率と点・期間有病率を算出。</span></div><div class="section" style="--section-color: var(--sec-result)"><span class="label">結果</span><span class="text">4年間で438例が新規診断され、罹患率12.0/10万人年。期間有病率最大58.5/10万人年、点有病率最大45.9/10万人。2017年時点で16歳以上の移行未実施例が159例存在。</span></div><div class="section" style="--section-color: var(--sec-implication)"><span class="label">臨床的示唆</span><span class="text">スコットランドのPIBD罹患率・有病率は世界最高水準であり、移行期患者を含めると実際の小児医療需要は最大30%高い可能性があり、医療体制整備が必要。</span></div></div>
 </article>
-<article>
-  <h2>Intestinal Ultrasound Scan in Acute Severe Ulcerative Colitis in Children: A Multicenter Prospective Study on Behalf of the Porto Inflammatory Bowel Disease Working Group of European Society for Paediatric Gastroenterology Hepatology and Nutrition.</h2>
+<article data-pmid="41850540">
+  <button class="bookmark-btn" type="button" aria-pressed="false" aria-label="ブックマーク">☆</button>
+  <h2>小児急性重症潰瘍性大腸炎における腸管超音波検査：欧州小児消化器肝臓栄養学会Porto炎症性腸疾患ワーキンググループによる多施設共同前向き研究</h2>
+  <p class="title-en">Intestinal Ultrasound Scan in Acute Severe Ulcerative Colitis in Children: A Multicenter Prospective Study on Behalf of the Porto Inflammatory Bowel Disease Working Group of European Society for Paediatric Gastroenterology Hepatology and Nutrition.</p>
   <p class="meta">Gastroenterology ・ 2026 ・ PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/41850540/" target="_blank" rel="noopener">41850540</a> ・ DOI: <a href="https://doi.org/10.1053/j.gastro.2026.02.034" target="_blank" rel="noopener">10.1053/j.gastro.2026.02.034</a></p>
-  <p class="summary">・背景: 小児急性重症潰瘍性大腸炎（ASUC）における治療反応予測に腸管超音波検査（IUS）が有用かを検討する必要がある。
-
-・方法: 欧州10施設で生物学的製剤未使用のASUC患児60例を前向きに登録し、ステロイド開始48時間以内と day 5-7にIUSを施行、腸管壁厚（CWT）・層構造・血流・Milanスコアを評価した。
-
-・結果: ステロイド無反応群（65%）はLLQ・左上腹部のCWTが有意に高く血流も亢進、LLQ CWT&gt;5mmとMilanスコア&gt;7.8がステロイド抵抗性予測に有用（AUC 0.819、0.834）。2回目IUSでのCWT&gt;4.8mm等は薬物治療失敗と関連（AUC 0.844-0.878）。
-
-・臨床的示唆: IUSはASUCにおける第一選択治療の失敗や大腸切除の必要性を予測する有効な非侵襲的モニタリング手法となりうる。</p>
+  <div class="abstract-card"><div class="section" style="--section-color: var(--sec-background)"><span class="label">背景</span><span class="text">小児急性重症潰瘍性大腸炎（ASUC）における治療反応予測に腸管超音波検査（IUS）が有用かを検討する必要がある。</span></div><div class="section" style="--section-color: var(--sec-method)"><span class="label">方法</span><span class="text">欧州10施設で生物学的製剤未使用のASUC患児60例を前向きに登録し、ステロイド開始48時間以内と day 5-7にIUSを施行、腸管壁厚（CWT）・層構造・血流・Milanスコアを評価した。</span></div><div class="section" style="--section-color: var(--sec-result)"><span class="label">結果</span><span class="text">ステロイド無反応群（65%）はLLQ・左上腹部のCWTが有意に高く血流も亢進、LLQ CWT&gt;5mmとMilanスコア&gt;7.8がステロイド抵抗性予測に有用（AUC 0.819、0.834）。2回目IUSでのCWT&gt;4.8mm等は薬物治療失敗と関連（AUC 0.844-0.878）。</span></div><div class="section" style="--section-color: var(--sec-implication)"><span class="label">臨床的示唆</span><span class="text">IUSはASUCにおける第一選択治療の失敗や大腸切除の必要性を予測する有効な非侵襲的モニタリング手法となりうる。</span></div></div>
 </article>
-<article>
-  <h2>Contemporary outcomes of isolated liver and combined liver-lung transplantation for cystic fibrosis in children.</h2>
+<article data-pmid="41800648">
+  <button class="bookmark-btn" type="button" aria-pressed="false" aria-label="ブックマーク">☆</button>
+  <h2>小児嚢胞性線維症に対する肝臓単独移植および肝肺同時移植の最近の成績</h2>
+  <p class="title-en">Contemporary outcomes of isolated liver and combined liver-lung transplantation for cystic fibrosis in children.</p>
   <p class="meta">Journal of pediatric gastroenterology and nutrition ・ 2026 ・ PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/41800648/" target="_blank" rel="noopener">41800648</a> ・ DOI: <a href="https://doi.org/10.1002/jpn3.70392" target="_blank" rel="noopener">10.1002/jpn3.70392</a></p>
-  <p class="summary">・背景:小児CFにおける単独肝移植(LT)と肝肺同時移植(CLLT)の予後比較、および生存関連因子の検討は十分でない。
-
-・方法:UNOSデータ(2002-2024)を用い、小児CF患者のLT(145例)とCLLT(12例)、および非CF小児LTとの臨床・生存データを比較。
-
-・結果:CF-LTはCLLTより生存良好(5年生存89.1%vs72.2%)だが、非CF-LTより不良(91.5%)。CLLT・高TB値は死亡・グラフト喪失のリスク増大と関連。
-
-・臨床的示唆:CFにおける単独LTはCLLTより予後良好であり、移植前の総ビリルビン値上昇は予後不良の指標となり得る。</p>
+  <div class="abstract-card"><div class="section" style="--section-color: var(--sec-background)"><span class="label">背景</span><span class="text">小児CFにおける単独肝移植(LT)と肝肺同時移植(CLLT)の予後比較、および生存関連因子の検討は十分でない。</span></div><div class="section" style="--section-color: var(--sec-method)"><span class="label">方法</span><span class="text">UNOSデータ(2002-2024)を用い、小児CF患者のLT(145例)とCLLT(12例)、および非CF小児LTとの臨床・生存データを比較。</span></div><div class="section" style="--section-color: var(--sec-result)"><span class="label">結果</span><span class="text">CF-LTはCLLTより生存良好(5年生存89.1%vs72.2%)だが、非CF-LTより不良(91.5%)。CLLT・高TB値は死亡・グラフト喪失のリスク増大と関連。</span></div><div class="section" style="--section-color: var(--sec-implication)"><span class="label">臨床的示唆</span><span class="text">CFにおける単独LTはCLLTより予後良好であり、移植前の総ビリルビン値上昇は予後不良の指標となり得る。</span></div></div>
 </article>
-<article>
-  <h2>Peppermint Oil and Sweets in Pediatric Irritable Bowel Syndrome and Functional Abdominal Pain: A Randomized Trial.</h2>
+<article data-pmid="41610933">
+  <button class="bookmark-btn" type="button" aria-pressed="false" aria-label="ブックマーク">☆</button>
+  <h2>小児の過敏性腸症候群および機能性腹痛に対するペパーミントオイルとお菓子の効果：ランダム化試験</h2>
+  <p class="title-en">Peppermint Oil and Sweets in Pediatric Irritable Bowel Syndrome and Functional Abdominal Pain: A Randomized Trial.</p>
   <p class="meta">Clinical gastroenterology and hepatology : the official clinical practice journal of the American Gastroenterological Association ・ 2026 ・ PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/41610933/" target="_blank" rel="noopener">41610933</a> ・ DOI: <a href="https://doi.org/10.1016/j.cgh.2026.01.014" target="_blank" rel="noopener">10.1016/j.cgh.2026.01.014</a></p>
-  <p class="summary">- 背景:小児IBS/FAP-NOSに有効な薬物治療は確立されておらず、抗痙攣薬ペパーミントオイルの有効性・安全性を検討した。
-- 方法:オランダ13施設でのRCT。8-18歳のIBS/FAP-NOS患児をペパーミントオイルカプセル、ペパーミント飴、プラセボに1:1:1割付し8週間投与、腹痛強度30%以上減少を主要評価項目とした。
-- 結果:治療成功率はペパーミントオイル44.0%、プラセボ37.3%、飴38.7%で群間差なし。症状改善についても有意差なし。有害事象は軽微かつ稀。
-- 臨床的示唆:ペパーミントオイル・飴はプラセボに優越せず、腸脳相関を標的とした他の実証的介入を優先すべきである。</p>
+  <div class="abstract-card"><div class="section" style="--section-color: var(--sec-background)"><span class="label">背景</span><span class="text">小児IBS/FAP-NOSに有効な薬物治療は確立されておらず、抗痙攣薬ペパーミントオイルの有効性・安全性を検討した。</span></div><div class="section" style="--section-color: var(--sec-method)"><span class="label">方法</span><span class="text">オランダ13施設でのRCT。8-18歳のIBS/FAP-NOS患児をペパーミントオイルカプセル、ペパーミント飴、プラセボに1:1:1割付し8週間投与、腹痛強度30%以上減少を主要評価項目とした。</span></div><div class="section" style="--section-color: var(--sec-result)"><span class="label">結果</span><span class="text">治療成功率はペパーミントオイル44.0%、プラセボ37.3%、飴38.7%で群間差なし。症状改善についても有意差なし。有害事象は軽微かつ稀。</span></div><div class="section" style="--section-color: var(--sec-implication)"><span class="label">臨床的示唆</span><span class="text">ペパーミントオイル・飴はプラセボに優越せず、腸脳相関を標的とした他の実証的介入を優先すべきである。</span></div></div>
 </article>
-<article>
-  <h2>Assessing for Disparities in Diagnostic Delay Among Patients With Eosinophilic Esophagitis.</h2>
+<article data-pmid="40921374">
+  <button class="bookmark-btn" type="button" aria-pressed="false" aria-label="ブックマーク">☆</button>
+  <h2>好酸球性食道炎患者における診断遅延の格差の評価</h2>
+  <p class="title-en">Assessing for Disparities in Diagnostic Delay Among Patients With Eosinophilic Esophagitis.</p>
   <p class="meta">Clinical gastroenterology and hepatology : the official clinical practice journal of the American Gastroenterological Association ・ 2026 ・ PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/40921374/" target="_blank" rel="noopener">40921374</a> ・ DOI: <a href="https://doi.org/10.1016/j.cgh.2025.08.032" target="_blank" rel="noopener">10.1016/j.cgh.2025.08.032</a></p>
-  <p class="summary">- 背景:EoEでは診断遅延が線維狭窄化進行の危険因子であり、米国における診断遅延の患者背景による差異は不明であった。
-- 方法:年齢、人種、その他の患者特性による診断遅延の差異を検討した。
-- 結果:抄録に具体的な結果の記載なし。
-- 臨床的示唆:診断遅延に格差がある集団を特定できれば、targeted介入により遅延軽減と疾患進行予防が可能となる。</p>
+  <div class="abstract-card"><div class="section" style="--section-color: var(--sec-background)"><span class="label">背景</span><span class="text">EoEでは診断遅延が線維狭窄化進行の危険因子であり、米国における診断遅延の患者背景による差異は不明であった。</span></div><div class="section" style="--section-color: var(--sec-method)"><span class="label">方法</span><span class="text">年齢、人種、その他の患者特性による診断遅延の差異を検討した。</span></div><div class="section" style="--section-color: var(--sec-result)"><span class="label">結果</span><span class="text">抄録に具体的な結果の記載なし。</span></div><div class="section" style="--section-color: var(--sec-implication)"><span class="label">臨床的示唆</span><span class="text">診断遅延に格差がある集団を特定できれば、targeted介入により遅延軽減と疾患進行予防が可能となる。</span></div></div>
 </article>
-<article>
-  <h2>Advancing Proactive Therapeutic Drug Monitoring With Model-Informed Precision Dosing in Pediatric Crohn&#x27;s Disease.</h2>
+<article data-pmid="40782947">
+  <button class="bookmark-btn" type="button" aria-pressed="false" aria-label="ブックマーク">☆</button>
+  <h2>小児クローン病における先制的治療薬物モニタリングとモデル情報に基づく精密投与の進歩</h2>
+  <p class="title-en">Advancing Proactive Therapeutic Drug Monitoring With Model-Informed Precision Dosing in Pediatric Crohn&#x27;s Disease.</p>
   <p class="meta">Clinical gastroenterology and hepatology : the official clinical practice journal of the American Gastroenterological Association ・ 2026 ・ PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/40782947/" target="_blank" rel="noopener">40782947</a> ・ DOI: <a href="https://doi.org/10.1016/j.cgh.2025.06.046" target="_blank" rel="noopener">10.1016/j.cgh.2025.06.046</a></p>
   <p class="summary">(要約は準備中です)</p>
 </article>
 </main>
 <footer>
   <p>データ提供: PubMed（NCBI）。要約生成: Anthropic Claude API。</p>
+  <p>ブックマークはこのブラウザ内（localStorage）にのみ保存され、他の端末とは同期されません。</p>
 </footer>
+<script>
+(function () {
+  var KEY = "pgi-bookmarks";
+
+  function getBookmarks() {
+    try {
+      return JSON.parse(localStorage.getItem(KEY) || "[]");
+    } catch (e) {
+      return [];
+    }
+  }
+
+  function setBookmarks(list) {
+    localStorage.setItem(KEY, JSON.stringify(list));
+  }
+
+  function updateCount() {
+    var el = document.getElementById("bookmark-count");
+    if (el) el.textContent = getBookmarks().length;
+  }
+
+  var filterActive = false;
+
+  function applyFilter() {
+    var bookmarks = getBookmarks();
+    document.querySelectorAll("article[data-pmid]").forEach(function (a) {
+      var pmid = a.getAttribute("data-pmid");
+      a.style.display = (!filterActive || bookmarks.indexOf(pmid) !== -1) ? "" : "none";
+    });
+    var empty = document.getElementById("bookmark-empty");
+    if (empty) empty.style.display = (filterActive && bookmarks.length === 0) ? "" : "none";
+  }
+
+  function toggleBookmark(btn) {
+    var article = btn.closest("article");
+    var pmid = article.getAttribute("data-pmid");
+    var list = getBookmarks();
+    var idx = list.indexOf(pmid);
+    if (idx === -1) {
+      list.push(pmid);
+      btn.textContent = "★";
+      btn.setAttribute("aria-pressed", "true");
+    } else {
+      list.splice(idx, 1);
+      btn.textContent = "☆";
+      btn.setAttribute("aria-pressed", "false");
+    }
+    setBookmarks(list);
+    updateCount();
+    if (filterActive) applyFilter();
+  }
+
+  function toggleFilter() {
+    filterActive = !filterActive;
+    var btn = document.getElementById("bookmark-filter-btn");
+    btn.setAttribute("aria-pressed", filterActive ? "true" : "false");
+    btn.textContent = filterActive ? "★ すべて表示" : "☆ ブックマークのみ表示";
+    applyFilter();
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    var bookmarks = getBookmarks();
+    document.querySelectorAll("article[data-pmid]").forEach(function (a) {
+      var pmid = a.getAttribute("data-pmid");
+      var btn = a.querySelector(".bookmark-btn");
+      if (btn && bookmarks.indexOf(pmid) !== -1) {
+        btn.textContent = "★";
+        btn.setAttribute("aria-pressed", "true");
+      }
+      if (btn) btn.addEventListener("click", function () { toggleBookmark(btn); });
+    });
+    updateCount();
+    var filterBtn = document.getElementById("bookmark-filter-btn");
+    if (filterBtn) filterBtn.addEventListener("click", toggleFilter);
+  });
+})();
+</script>
 </body>
 </html>

@@ -27,6 +27,9 @@ description: 小児消化器 論文まとめサイトの更新パイプライン
 ## 注意点
 
 - `data/papers.json` は既存データとPMIDで重複排除されるため、再実行しても安全
+- 新規追加論文には `fetch_pubmed.py` が `first_seen`（取得日）を付与し、`build_site.py` が直近7日以内ならNEWバッジを表示する（`NEW_BADGE_DAYS`で調整可）
+- サイト上の「更新を実行」ボタンはGitHub Actionsの実行ページへのリンクのみ（サイト訪問者が直接実行することはできない設計）
+- ブックマークは各ブラウザのlocalStorageに保存され、サーバー側やリポジトリには保存されない
 - 対象雑誌を変更したい場合は `scripts/fetch_pubmed.py` の `PEDIATRIC_SPECIFIC_JOURNALS` / `GENERAL_JOURNALS` を編集する
 - GitHub Actions（Actionsタブから手動実行）でも同じ処理が実行できる。ローカル実行はテストや即時反映したい場合に使う
 - サイト公開先: https://tnokats0416.github.io/pediatric-gi-report/

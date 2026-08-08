@@ -10,6 +10,7 @@ import time
 import urllib.parse
 import urllib.request
 import xml.etree.ElementTree as ET
+from datetime import date
 from pathlib import Path
 
 EUTILS_BASE = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils"
@@ -158,7 +159,9 @@ def main() -> None:
         new_articles.extend(efetch(batch))
         time.sleep(REQUEST_INTERVAL_SEC)
 
+    today = date.today().isoformat()
     for article in new_articles:
+        article["first_seen"] = today  # サイト上でNEW表示するために使う
         existing[article["pmid"]] = article
 
     save(existing)
